@@ -1,10 +1,11 @@
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Header from "./components/Header/Header";
+import Header from "./components/Header/Header";
 // import About from "./pages/About/About";
-// import Events from "./pages/Events/Events";
+// import Activity from "./pages/Activity/Activity";
+// import Contribute from "./pages/Contribute/Contribute";
 // import Contact from "./pages/Contact/Contact";
-// import Resources from "./pages/Resources/Resources";
+// import Resource from "./pages/Resources/Resource";
 // import NotFound from "./pages/NotFound/NotFound";
 // import Footer from "./components/Footer/Footer";
 
@@ -12,14 +13,14 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        {/* <Header />
-        <main>
+        <Header />
+        {/*<main>
           <Routes>
             <Route path="/" element={<About />} />
+            <Route path="/activity" element={<Activity />} />
             <Route path="/contribute" element={<Contribute/>} />
-            <Route path="/events" element={<Events />} />
+            <Route path="/resource" element={<Resource />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/resources" element={<Resources />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
