@@ -3,6 +3,7 @@ import instagramLogo from "../../assets/images/instagram.svg";
 import linkedinLogo from "../../assets/images/linkedin.svg";
 import telegramLogo from "../../assets/images/telegram.svg";
 import facebookLogo from "../../assets/images/facebook.svg";
+import emailLogo from "../../assets/images/email.svg";
 
 function ContactLinks() {
   const contactLinks = [
@@ -25,6 +26,11 @@ function ContactLinks() {
       name: "FaceBook",
       link: "https://www.facebook.com/vancouverpersianarchitects",
       logo: facebookLogo,
+    },
+    {
+      name: "Email",
+      link: "mailto:persianinarchitecture@gmail.com",
+      logo: emailLogo,
     },
   ];
 
