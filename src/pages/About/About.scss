@@ -1,0 +1,34 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: $mid-space-between;
+  @include tablet {
+    gap: $tablet-padding;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $mobile-padding;
+    @include tablet {
+      align-items: flex-start;
+      gap: $mid-space-between;
+    }
+    &-title {
+      @include subheader;
+    }
+    &-content {
+      @include body-large;
+      text-align: center;
+      @include tablet {
+        text-align: left;
+      }
+    }
+  }
+}
