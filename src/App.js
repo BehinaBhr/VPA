@@ -1,11 +1,12 @@
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
+// import Home from "./pages/Home/Home";
+import Events from "./pages/Events/Events";
+// import Members from "./pages/Members/Members";
+// import Links from "./pages/Links/Links";
 import About from "./pages/About/About";
-// import Activity from "./pages/Activity/Activity";
-// import Contribute from "./pages/Contribute/Contribute";
 import Contact from "./pages/Contact/Contact";
-// import Resource from "./pages/Resources/Resource";
 import NotFound from "./pages/NotFound/NotFound";
 // import Footer from "./components/Footer/Footer";
 
@@ -16,10 +17,11 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<About />} />
-            {/* <Route path="/activity" element={<Activity />} />
-            <Route path="/contribute" element={<Contribute/>} />
-            <Route path="/resource" element={<Resource />} /> */}
+            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/events" element={<Events />} />
+            {/* <Route path="/members" element={<Members />} />
+            <Route path="/links" element={<Links />} /> */}
+            <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
@@ -31,4 +33,3 @@ function App() {
 }
 
 export default App;
-
