@@ -96,7 +96,7 @@ const Contact = () => {
     <div className="contact">
       <div className="contact__img-wrapper">
         <section className="contact__slogan">
-          <img src={connectLogo} alt="" loading="lazy" />
+          <img src={connectLogo} alt="two hand shaking " loading="lazy" />
         </section>
         <ContactLink />
       </div>
