@@ -10,7 +10,8 @@
   justify-content: space-between;
   width: 100%;
   border-bottom: 1px solid $gray;
-  gap: $smallest-space-between;
+  padding-bottom: $smallest-space-between;
+  gap: $tiny-space-between;
 
   &--expanded {
     flex-direction: column;
@@ -18,10 +19,17 @@
       flex-direction: row-reverse;
     }
     .event {
+      &__poster {
+        width: $mobile-expand-poster-width;
+        img {
+          max-width: $mobile-expand-poster-width;
+          max-height: $mobile-expand-poster-width;
+        }
+      }
       &__body {
         width: 100%;
         @include tablet {
-          width: calc(100% - 14rem);
+          width: calc(100% - $tablet-poster-width);
         }
       }
       &__info {
@@ -38,19 +46,19 @@
     align-items: center;
     justify-content: center;
     aspect-ratio: 1;
-    width: 7rem;
+    width: $mobile-poster-width;
     @include tablet {
-      width: 14rem;
+      width: $tablet-poster-width;
       align-self: start;
     }
     img {
       width: auto;
       height: auto;
-      max-width: 7rem;
-      max-height: 7rem;
+      max-width: $mobile-poster-width;
+      max-height: $mobile-poster-width;
       @include tablet {
-        max-width: 14rem;
-        max-height: 14rem;
+        max-width: $tablet-poster-width;
+        max-height: $tablet-poster-width;
       }
     }
   }
@@ -59,13 +67,16 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: calc(100% - $mobile-poster-width);
     gap: $small-space-between;
+    @include tablet {
+      width: calc(100% - $tablet-poster-width);
+    }
   }
 
   &__title {
     @include body-large;
     font-weight: bold;
-    text-align: center;
   }
 
   &__section {
@@ -74,15 +85,13 @@
     align-items: flex-start;
     gap: $small-space-between;
     width: 100%;
-    @include tablet {
-    }
   }
+
   &__info {
     display: flex;
     align-items: center;
     width: 100%;
     gap: $tiny-space-between;
-
     &-icon {
       width: 22px;
       @include tablet {
