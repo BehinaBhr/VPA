@@ -1,12 +1,13 @@
 @use "../../styles/partials/typography-mixins" as *;
 @use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/variables" as *;@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
 
-.events{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: $mid-space-between;
+.events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $mid-space-between;
   @include tablet {
     align-items: flex-start;
     gap: $tablet-padding;
@@ -14,7 +15,7 @@
   @include desktop {
     gap: $large-space-between;
   }
-  &-title{
+  &-title {
     @include subheader;
   }
 }

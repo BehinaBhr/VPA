@@ -1,0 +1,43 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $mid-space-between;
+  @include tablet {
+    gap: $tablet-padding;
+    align-items: flex-start;
+  }
+  &__title {
+    @include subheader;
+  }
+  &__album {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: $mobile-padding;
+
+    &-header {
+      text-align: center;
+      @include body-large;
+      @include tablet {
+        text-align: left;
+      }
+    }
+
+    &-item {
+      break-inside: avoid;
+      img {
+        display: block;
+        width: 100%;
+        cursor: pointer;
+      }
+      border: 0.5px solid $sand;
+      border-radius: 10px;
+    }
+  }
+}
