@@ -9,15 +9,21 @@ function Gallery() {
   return (
     <div className="gallery">
       <h2 className="gallery__title">VPA Gallery</h2>
-      {GalleryElements.map((event) => (
+      {GalleryElements.map((album) => (
         <section className="gallery__album">
           <h3 className="gallery__album-header">
-            {event.date} | {event.info}
+            {album.date} | {album.info}
           </h3>
           <ResponsiveMasonry columnsCountBreakPoints={{ 320: 3, 767: 5, 1279: 7 }}>
             <Masonry gutter="10px">
-              {event.list.map((image, index) => (
-                <img className="gallery__album-item" key={index} src={image} alt={`${event.info} - ${index}`} loading="lazy" />
+              {album.list.map((image, index) => (
+                <img
+                  className="gallery__album-item"
+                  key={index}
+                  src={image}
+                  alt={`${album.info} - ${index}`}
+                  loading="lazy"
+                />
               ))}
             </Masonry>
           </ResponsiveMasonry>
