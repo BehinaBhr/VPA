@@ -5,7 +5,7 @@ import Header from "./components/Header/Header";
 import Events from "./pages/Events/Events";
 import Gallery from "./pages/Gallery/Gallery";
 // import Members from "./pages/Members/Members";
-// import Links from "./pages/Links/Links";
+import Links from "./pages/Links/Links.js";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import NotFound from "./pages/NotFound/NotFound";
@@ -21,8 +21,8 @@ function App() {
             {/* <Route path="/" element={<Home />} /> */}
             <Route path="/events" element={<Events />} />
             <Route path="/gallery" element={<Gallery />} />
-            {/* <Route path="/members" element={<Members />} />
-            <Route path="/links" element={<Links />} /> */}
+            {/* <Route path="/members" element={<Members />} />*/}
+            <Route path="/links" element={<Links />} /> 
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

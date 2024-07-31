@@ -2,9 +2,8 @@ import "./Gallery.scss";
 import { DocumentTitle } from "../../utils/utils";
 import GalleryElements from "./GalleryElements.js";
 
-function Gallery() {
+const Gallery = () => {
   DocumentTitle("Gallery");
-
   return (
     <div className="gallery">
       <h2 className="gallery__title">VPA Gallery</h2>
@@ -24,6 +23,6 @@ function Gallery() {
       ))}
     </div>
   );
-}
+};
 
 export default Gallery;
