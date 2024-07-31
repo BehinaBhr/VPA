@@ -36,8 +36,8 @@ function Header() {
           <Link to={"/events"}>
             <li className={`header__nav-item ${location.pathname === "/events" ? "active" : ""}`}>Events</li>
           </Link>
-          <Link to={"/members"}>
-            <li className={`header__nav-item ${location.pathname === "/members" ? "active" : ""}`}>Members</li>
+          <Link to={"/gallery"}>
+            <li className={`header__nav-item ${location.pathname === "/gallery" ? "active" : ""}`}>Gallery</li>
           </Link>
           <Link to={"/links"}>
             <li className={`header__nav-item ${location.pathname === "/links" ? "active" : ""}`}>Links</li>
