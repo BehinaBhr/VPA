@@ -17,7 +17,7 @@
 
     &-title {
       @include body-large;
-     font-weight: bold;
+      font-weight: bold;
     }
 
     &-content {
@@ -25,7 +25,4 @@
       padding-top: $small-space-between;
     }
   }
-}
-details {
-  cursor: pointer;
 }
