@@ -1,6 +1,5 @@
 import "./Gallery.scss";
 import { DocumentTitle } from "../../utils/utils";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import GalleryElements from "./GalleryElements.js";
 
 function Gallery() {
@@ -9,24 +8,18 @@ function Gallery() {
   return (
     <div className="gallery">
       <h2 className="gallery__title">VPA Gallery</h2>
+
       {GalleryElements.map((album) => (
-        <section className="gallery__album">
+        <section className="gallery__album" key={album.id}>
           <h3 className="gallery__album-header">
-            {album.date} | {album.info}
+            {album.date} | {album.name}
           </h3>
-          <ResponsiveMasonry columnsCountBreakPoints={{ 320: 3, 767: 5, 1279: 7 }}>
-            <Masonry gutter="10px">
-              {album.list.map((image, index) => (
-                <img
-                  className="gallery__album-item"
-                  key={index}
-                  src={image}
-                  alt={`${album.info} - ${index}`}
-                  loading="lazy"
-                />
-              ))}
-            </Masonry>
-          </ResponsiveMasonry>
+          <iframe
+            src={`https://drive.google.com/embeddedfolderview?id=${album.folderID}#grid`}
+            className="gallery__album-fram"
+            title={`Google Drive Folder - ${album.name}`}
+            allowFullScreen
+          ></iframe>
         </section>
       ))}
     </div>

@@ -16,25 +16,30 @@
   &__title {
     @include subheader;
   }
-  
+
   &__album {
     display: flex;
-    width: 100%;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
     gap: $mobile-padding;
+    @include tablet {
+      align-items: flex-start;
+    }
 
     &-header {
       text-align: center;
       @include body-large;
-      @include tablet {
-        text-align: left;
-      }
     }
 
-    &-item {
+    &-fram {
       cursor: pointer;
-      border: 0.5px solid $sand;
+      align-self: center;
+      background-color: $soft-white;
+      border: 1px solid $sand;
       border-radius: 10px;
+      width: 100%;
+      height: 50vh;
     }
   }
 }
