@@ -1,7 +1,7 @@
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-// import Home from "./pages/Home/Home";
+import Home from "./pages/Home/Home";
 import Events from "./pages/Events/Events";
 import Gallery from "./pages/Gallery/Gallery";
 // import Members from "./pages/Members/Members";
@@ -18,7 +18,7 @@ function App() {
         <Header />
         <main>
           <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/" element={<Home />} />
             <Route path="/events" element={<Events />} />
             <Route path="/gallery" element={<Gallery />} />
             {/* <Route path="/members" element={<Members />} />*/}
