@@ -4,7 +4,8 @@ import persian from "../../assets/images/persian.jpeg";
 import ContactLink from "../../components/ContactLinks/ContactLink";
 import { Link } from "react-router-dom";
 import architects from "../../assets/images/architects.png";
-
+import Activity from "../../components/Activity/Activity";
+import ActivityElements from "./ActivityElements";
 
 const Home = () => {
   DocumentTitle("VPA");
@@ -40,11 +41,17 @@ const Home = () => {
         </div>
       </section>
 
-      {/* <section className="home__activity">
-      <p>Events</p>
-      <p>Gallary </p>
-      <p>Links</p>
-      </section>  */}
+      <section className="home__activity" id="activity">
+        {ActivityElements.map((activity) => (
+          <Activity
+            key={activity.id}
+            id={activity.id}
+            image={activity.image}
+            title={activity.title}
+            link_to={activity.link_to}
+          />
+        ))}
+      </section>
     </div>
   );
 };
