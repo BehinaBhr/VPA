@@ -6,7 +6,8 @@
 
 .footer {
   background-color: $light-beige;
-  
+  margin-top: auto;
+
   &__wrapper {
     display: flex;
     flex-direction: column;
