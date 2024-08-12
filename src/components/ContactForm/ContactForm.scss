@@ -1,0 +1,69 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.contact-form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: $mobile-padding;
+  @include tablet {
+    gap: $mid-space-between;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: $smallest-space-between;
+
+    label {
+      @include body-large;
+    }
+
+    input,
+    textarea {
+      @include body-medium;
+      background-color: $white;
+      color: $fade-black;
+      width: 100%;
+      padding: $smallest-space-between;
+      border: 1px solid $gray;
+      border-radius: 5px;
+      &:focus {
+        outline: none;
+        border-color: $beige;
+      }
+    }
+  }
+
+  &__button {
+    align-self: center;
+    @include tablet {
+      align-self: flex-start;
+    }
+    button {
+      @include labels-links-button;
+      padding: $smallest-space-between $tablet-padding;
+      background-color: $sand;
+      margin-bottom: $smallest-space-between;
+      border: none;
+      border-radius: $oval-border-radius;
+      cursor: pointer;
+      box-shadow: 5px 5px $gray;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      // button effect: being pushed down on hover
+      &:hover {
+        box-shadow: 3px 3px $gray;
+        transform: translateY(4px);
+      }
+    }
+  }
+
+  &__success-message {
+    background-color: $dirty;
+    border-radius: 5px;
+    padding: $mobile-padding;
+    @include body-large;
+  }
+}
