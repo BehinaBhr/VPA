@@ -46,6 +46,7 @@
       @include labels-links-button;
       padding: $smallest-space-between $tablet-padding;
       background-color: $sand;
+      margin-bottom: $smallest-space-between;
       border: none;
       border-radius: $oval-border-radius;
       cursor: pointer;

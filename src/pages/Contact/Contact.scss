@@ -10,135 +10,81 @@
   gap: $mid-space-between;
   @include tablet {
     align-items: flex-start;
-    gap: $large-space-between;
+    gap: $tablet-padding;
   }
 
   &__title {
     @include subheader;
-    color: $black;
   }
 
   &__body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: $mid-space-between;
+    gap: $mobile-padding;
     @include tablet {
+      align-items: stretch;
       flex-direction: row-reverse;
+      justify-content: space-between;
+      gap: $tablet-padding;
+    }
+    @include desktop {
+      gap: $large-space-between;
     }
   }
 
-  &__img-wrapper {
+  &__banner {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     gap: $mobile-padding;
     @include tablet {
+      width: 40%;
       gap: $mid-space-between;
     }
-  }
-  &__slogan {
-    display: flex;
-    justify-content: center;
-    width: 235px;
-    @include tablet {
+
+    &-img {
+      display: flex;
       justify-content: flex-end;
-      width: 340px;
+      width: 250px;
+      @include tablet {
+        width: 100%;
+      }
+      @include desktop {
+        max-height: 340px;
+      }
     }
-    @include desktop {
-      width: 460px;
-    }
-  }
-  .contact-links {
-    display: flex;
-    gap: $mobile-padding;
-    @include tablet {
-      flex-direction: row;
-      gap: $tablet-padding;
+
+    .contact-links {
+      display: flex;
+      gap: $mobile-padding;
+      @include desktop {
+        gap: $tablet-padding;
+      }
     }
   }
 
-  &__content {
+  &__info {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 90%;
     gap: $small-space-between;
     @include tablet {
       align-items: flex-start;
       gap: $mid-space-between;
     }
-  }
 
-  &__info {
-    @include body-large;
-    text-align: center;
-    &--bold {
-      font-weight: bold;
+    &-text {
+      @include body-large;
+      text-align: center;
+      &--bold {
+        font-weight: bold;
+      }
+      @include tablet {
+        text-align: left;
+      }
     }
-    @include tablet {
-      text-align: left;
-    }
   }
-  // &__form {
-  //   display: flex;
-  //   width: 100%;
-  //   flex-direction: column;
-  //   gap: $mobile-padding;
-  //   @include tablet {
-  //     gap: $mid-space-between;
-  //   }
-
-  //   &-group {
-  //     display: flex;
-  //     flex-direction: column;
-  //     gap: $smallest-space-between;
-
-  //     label {
-  //       @include body-large;
-  //     }
-
-  //     input,
-  //     textarea {
-  //       @include body-medium;
-  //       background-color: $white;
-  //       color: $fade-black;
-  //       width: 100%;
-  //       padding: $smallest-space-between;
-  //       border: 1px solid $gray;
-  //       border-radius: 5px;
-  //       &:focus {
-  //         outline: none;
-  //         border-color: $beige;
-  //       }
-  //     }
-  //   }
-  //   &-button {
-  //     align-self: center;
-  //     @include tablet {
-  //       align-self: flex-start;
-  //     }
-  //   }
-  // }
-  // button {
-  //   @include labels-links-button;
-  //   padding: $smallest-space-between $tablet-padding;
-  //   background-color: $sand;
-  //   border: none;
-  //   border-radius: $oval-border-radius;
-  //   cursor: pointer;
-  //   box-shadow: 5px 5px $gray;
-  //   transition: box-shadow 0.2s ease, transform 0.2s ease;
-  //   // button effect: being pushed down on hover
-  //   &:hover {
-  //     box-shadow: 3px 3px $gray;
-  //     transform: translateY(4px);
-  //   }
-  // }
-  // &__success-message {
-  //   background-color: $dirty;
-  //   border-radius: 5px;
-  //   padding: $mobile-padding;
-  //   @include body-large;
-  // }
 }
