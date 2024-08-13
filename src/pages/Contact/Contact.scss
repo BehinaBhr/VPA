@@ -45,8 +45,6 @@
     }
 
     &-img {
-      display: flex;
-      justify-content: flex-end;
       width: 250px;
       @include tablet {
         width: 100%;

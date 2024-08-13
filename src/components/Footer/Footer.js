@@ -2,6 +2,7 @@ import "./Footer.scss";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
 import ContactLinks from "../ContactLinks/ContactLink";
+import NavList from "../NavList/NavList";
 
 const Footer = () => {
   return (
@@ -14,7 +15,7 @@ const Footer = () => {
                 <img className="footer__logo-image" src={Logo} alt="VPA Logo" loading="lazy" />
               </Link>
             </div>
-            <ul className="footer__header-nav">
+            {/* <ul className="footer__header-nav">
               <Link to="/">
                 <li className="footer__header-nav-item">Home</li>
               </Link>
@@ -23,6 +24,9 @@ const Footer = () => {
               </Link>
               <Link to="/gallery">
                 <li className="footer__header-nav-item">Gallery</li>
+              </Link>
+              <Link to="/join">
+                <li className="footer__header-nav-item">Join</li>
               </Link>
               <Link to="/links">
                 <li className="footer__header-nav-item">Links</li>
@@ -33,12 +37,13 @@ const Footer = () => {
               <Link to="/contact">
                 <li className="footer__header-nav-item">Contact</li>
               </Link>
-            </ul>
+            </ul> */}
+            <NavList />
           </section>
 
           <section className="footer__connect">
             <div className="footer__connect-join">
-              <Link to="/contact">
+              <Link to="/join">
                 <img
                   className="footer__connect-join-title"
                   src="https://see.fontimg.com/api/renderfont4/VGmm6/eyJyIjoiZnMiLCJoIjoxMTUsInciOjEwMDAsImZzIjoxMTUsImZnYyI6IiMwMDAwMDAiLCJiZ2MiOiIjRkZGRkZGIiwidCI6MX0/RG9uJ3QgTWlzcyBPdXQ/kadung-tresno.png"

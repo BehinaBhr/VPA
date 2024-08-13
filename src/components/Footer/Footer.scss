@@ -47,10 +47,10 @@
     @include tablet {
       justify-content: center;
       align-items: flex-start;
-      width: 50%;
+      width: 55%;
     }
     @include desktop {
-      width: 40%;
+      width: 60%;
     }
 
     &-logo {
@@ -63,26 +63,16 @@
         width: 7rem;
       }
     }
-
-    &-nav {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-      list-style: none;
-      gap: $small-space-between;
-      @include tablet {
-        justify-content: space-between;
-      }
-      &-item {
-        @include body-medium;
-        text-decoration: none;
-        justify-content: space-evenly;
-        color: $black;
-        &:hover {
-          font-weight: bold;
-          cursor: pointer;
-        }
+  }
+  .nav-list {
+    gap: $smallest-space-between;
+    @include tablet {
+      justify-content: space-between;
+    }
+    &__item {
+      @include body-medium;
+      &--active {
+        text-decoration: underline;
       }
     }
   }
