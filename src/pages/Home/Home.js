@@ -35,7 +35,7 @@ const Home = () => {
         </div>
         <div className="home__invite-wrapper">
           <h2 className="home__invite-title">Become a member</h2>
-          <Link to="/contact">
+          <Link to="/join">
             <button>Join Us</button>
           </Link>
         </div>
