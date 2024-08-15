@@ -1,48 +1,47 @@
 import "./Links.scss";
 import { DocumentTitle } from "../../utils/utils";
-import LinksElements from "./LinksElements.js";
-
-// To group the links by `group_name`
-const groupLinksByGroupName = (links) => {
-  const groupedLinks = {};
-
-  links.forEach(link => {
-    const { group_name } = link;
-     // Create a new group if it doesn't exist
-    if (!groupedLinks[group_name]) {
-      groupedLinks[group_name] = [];
-    }
-    // Add the link to the corresponding group
-    groupedLinks[group_name].push(link);
-  });
-
-  return groupedLinks;
-};
-
-
+import { useEffect, useState } from "react";
+import { fetchLinks } from "../../utils/api.js";
+import Loading from "../../components/Loading /Loading.js";
+import ConnectionError from "../../components/ConnectionError/ConnectionError";
 
 const Links = () => {
   DocumentTitle("Links");
 
-  // Group links by their group_name 
-  const groupedLinks = groupLinksByGroupName(LinksElements);
+  const [groupedLinks, setGroupedLinks] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const links = await fetchLinks();
+        setGroupedLinks(links);
+        console.log(groupedLinks);
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        setHasError(true);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (hasError) return <ConnectionError error={`Unable to access links right now. Please try again later`} />;
+  if (isLoading) return <Loading />;
 
   return (
     <div className="links">
       <h2 className="links__title">Resource Links</h2>
+
       <div className="links__body">
-        {Object.keys(groupedLinks).map((groupName, index) => (
+        {groupedLinks.map((group, index) => (
           <section className="links__group" key={index}>
-            <h3 className="links__group-name">{groupName}</h3>
+            <h3 className="links__group-name">{group.name}</h3>
             <div className="links__group-items">
-              {groupedLinks[groupName].map((link, i) => (
-                <a
-                  key={link.id}
-                  href={link.href}
-                  className="links__group-item"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+              {group.links.map((link, i) => (
+                <a key={i} href={link.href} className="links__group-item" target="_blank" rel="noopener noreferrer">
                   {link.title}
                 </a>
               ))}
@@ -55,4 +54,3 @@ const Links = () => {
 };
 
 export default Links;
-
