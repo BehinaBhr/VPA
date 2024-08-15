@@ -16,7 +16,8 @@ const Event = ({ id, image, title, date, time, location, topic, host, additional
   return (
     <div className={`event ${expanded ? "event--expanded" : ""}`}>
       <div className="event__poster">
-        <img src={image} alt="event poster" loading="lazy" />
+        {/* <img src={image} alt="event poster" loading="lazy" /> */}
+        <img src={`https://drive.google.com/thumbnail?id=${image}&sz=w1000`} alt={`event${id} poster`} loading="lazy"/>
       </div>
       <div className="event__body">
         <h3 className="event__title">{title}</h3>

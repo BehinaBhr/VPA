@@ -5,6 +5,7 @@ import EventsElements from "./EventsElements.js";
 
 const Events = () => {
   DocumentTitle("Events");
+
   return (
     <div className="events" id="events">
       <h2 className="events-title">Events</h2>

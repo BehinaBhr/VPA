@@ -1,13 +1,8 @@
-import event1Img from "../../assets/images/event1.jpg";
-import event2Img from "../../assets/images/event2.jpg";
-import event3Img from "../../assets/images/event3.jpg";
-import event4Img from "../../assets/images/event4.jpg";
-import event5Img from "../../assets/images/event5.jpg";
-
 let EventsElements = [
   {
     id: 1,
-    image: event1Img,
+    //"https://drive.google.com/file/d/1BXSDkTHinUPh8UvzF6im15jEX35QELjK/view?usp=sharing"
+    image: "1BXSDkTHinUPh8UvzF6im15jEX35QELjK",
     title: "Celebration of the Persian New Year",
     date: "April 10th 2016",
     time: "6-9 pm",
@@ -19,7 +14,8 @@ let EventsElements = [
   },
   {
     id: 2,
-    image: event2Img,
+    //"https://drive.google.com/file/d/1d6NjH4hx7nJKtnpmaHP1k6a7V85jZfa4/view?usp=sharing"
+    image: "1d6NjH4hx7nJKtnpmaHP1k6a7V85jZfa4",
     title: "The Role of An Architect in Green Buildings",
     date: "November 17th 2016",
     time: "6:30-9:30 pm",
@@ -31,7 +27,8 @@ let EventsElements = [
   },
   {
     id: 3,
-    image: event3Img,
+    //"https://drive.google.com/file/d/1xIjxBMc3f1gvWfXMCMObSvfL8M12PfWK/view?usp=sharing"
+    image: "1xIjxBMc3f1gvWfXMCMObSvfL8M12PfWK",
     title: "Word of The Day: Carbon Footprint",
     date: "June 20th 2017",
     time: "6-8 pm",
@@ -43,7 +40,8 @@ let EventsElements = [
   },
   {
     id: 4,
-    image: event4Img,
+    //"https://drive.google.com/file/d/1kMvSK-nN5zhQxkqcw5t7TehQE8jW5pX8/view?usp=sharing"
+    image: "1kMvSK-nN5zhQxkqcw5t7TehQE8jW5pX8",
     title: "Summer Social Walk & Talk On Gastown",
     date: "August 10th 2017",
     time: "6-8 pm",
@@ -55,13 +53,27 @@ let EventsElements = [
   },
   {
     id: 5,
-    image: event5Img,
+    //"https://drive.google.com/file/d/12v40CVjnW1NqQJ74T6W2q6HFYgsfThIk/view?usp=sharing"
+    image: "12v40CVjnW1NqQJ74T6W2q6HFYgsfThIk",
     title: "Celebration of Yalda 2017",
     date: "December 11th 2017",
     time: "6-8:30 pm",
     location: "Brooks Corning Office at #200, 380 W 2nd Ave, Vancouver",
     topic: "Storytelling Night about your experience at work",
     host: "Dr Homayoon Arbabain",
+    additional_info: "",
+    fee: "10",
+  },
+  {
+    id: 6,
+    //"https://drive.google.com/file/d/1xQVY9uBabbTFdGnApFOySvie9jko7Ns5/view?usp=sharing"
+    image: "1xQVY9uBabbTFdGnApFOySvie9jko7Ns5",
+    title: "Spring Social Night",
+    date: "April 23th 2018",
+    time: "6-8:30 pm",
+    location: "ALMA ROOM at VANCOUVER PUBLIC LIBRARY",
+    topic: "Question & Answer Session",
+    host: "Mojan Nozari",
     additional_info: "",
     fee: "10",
   },

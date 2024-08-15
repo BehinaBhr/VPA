@@ -14,7 +14,7 @@ const Gallery = () => {
             {album.date} | {album.name}
           </h3>
           <iframe
-            src={`https://drive.google.com/embeddedfolderview?id=${album.folderID}#grid`}
+            src={`https://drive.google.com/embeddedfolderview?id=${album.src}#grid`}
             className="gallery__album-fram"
             title={`Google Drive Folder - ${album.name}`}
             allowFullScreen
