@@ -17,7 +17,6 @@ const Links = () => {
       try {
         const links = await fetchLinks();
         setGroupedLinks(links);
-        console.log(groupedLinks);
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);

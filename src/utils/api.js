@@ -11,4 +11,9 @@ const fetchLinks = async () => {
   return fetchData(`${BASE_URL}/api/links`);
 };
 
-export { fetchLinks };
+// Fetch all albums
+const fetchAlbums = async () => {
+  return fetchData(`${BASE_URL}/api/albums`);
+};
+
+export { fetchLinks, fetchAlbums };
