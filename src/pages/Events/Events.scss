@@ -15,7 +15,49 @@
   @include desktop {
     gap: $large-space-between;
   }
-  &-title {
-    @include subheader;
+  &__header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    &-title {
+      @include subheader;
+    }
+
+    &-segments {
+      @include body-large;
+      display: flex;
+      border: 5px solid $warmer-cream;
+      border-radius: 10px;
+      background-color: $warmer-cream;
+      gap: $smallest-space-between;
+
+      &-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        color: $fade-beige;
+        border: 0px solid transparent;
+        border-radius: 10px;
+        transition: box-shadow 0.3s ease;
+        width: 75px;
+        @include tablet {
+          width: 80px;
+        }
+        &:hover {
+          cursor: pointer;
+          color: $dark-fade-beige;
+        }
+
+        &.selected {
+          padding: $tiny-space-between;
+          color: $fade-black;
+          background-color: $soft-white;
+          box-shadow: 0 2px 5px $gray;
+        }
+      }
+    }
   }
 }

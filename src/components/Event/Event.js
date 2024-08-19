@@ -7,7 +7,7 @@ import topicIcon from "../../assets/images/topic.svg";
 import infoIcon from "../../assets/images/info.svg";
 import feeIcon from "../../assets/images/fee.svg";
 
-const Event = ({ id, image, title, date, time, location, topic, host, additional_info, register, fee }) => {
+const Event = ({ id, image, title, date, time, location, topic, host, additional_info, fee, isUpcoming, register }) => {
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpand = () => {
@@ -16,7 +16,7 @@ const Event = ({ id, image, title, date, time, location, topic, host, additional
   return (
     <div className={`event ${expanded ? "event--expanded" : ""}`}>
       <div className="event__poster">
-        <img src={image} alt="event poster" loading="lazy" />
+        <img src={`https://drive.google.com/thumbnail?id=${image}&sz=w1000`} alt={`event${id} poster`} />
       </div>
       <div className="event__body">
         <h3 className="event__title">{title}</h3>
@@ -40,7 +40,7 @@ const Event = ({ id, image, title, date, time, location, topic, host, additional
 
             {topic && (
               <div className="event__info">
-                 <img className="event__info-icon" src={topicIcon} alt="topic icon" loading="lazy" />
+                <img className="event__info-icon" src={topicIcon} alt="topic icon" loading="lazy" />
                 <h4 className="event__info-title">Topic:</h4>
                 <p className="event__info-text">{topic}</p>
               </div>
@@ -48,7 +48,7 @@ const Event = ({ id, image, title, date, time, location, topic, host, additional
 
             {host && (
               <div className="event__info">
-                 <img className="event__info-icon" src={hostIcon} alt="host icon" loading="lazy" />
+                <img className="event__info-icon" src={hostIcon} alt="host icon" loading="lazy" />
                 <h4 className="event__info-title">Host:</h4>
                 <p className="event__info-text">{host}</p>
               </div>
@@ -64,15 +64,16 @@ const Event = ({ id, image, title, date, time, location, topic, host, additional
 
             {fee && (
               <div className="event__info">
-                 <img className="event__info-icon" src={feeIcon} alt="fee icon" loading="lazy" />
+                <img className="event__info-icon" src={feeIcon} alt="fee icon" loading="lazy" />
                 <h4 className="event__info-title">Fee:</h4>
                 <p className="event__info-text">{fee}</p>
               </div>
             )}
-
-            <a href={register} className="event__register" target="_blank" rel="noopener noreferrer">
-              Register
-            </a>
+            {isUpcoming && register && (
+              <a href={register} className="event__register" target="_blank" rel="noopener noreferrer">
+                Register
+              </a>
+            )}
           </div>
         )}
         <button className="event__see-more" onClick={toggleExpand}>
