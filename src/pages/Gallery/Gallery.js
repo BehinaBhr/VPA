@@ -8,7 +8,7 @@ import ConnectionError from "../../components/ConnectionError/ConnectionError";
 const Gallery = () => {
   DocumentTitle("Gallery");
 
-  const [sortedAlbums, setSortedAlbums] = useState({});
+  const [sortedAlbums, setSortedAlbums] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 

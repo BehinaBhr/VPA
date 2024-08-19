@@ -8,7 +8,7 @@ import ConnectionError from "../../components/ConnectionError/ConnectionError";
 const Links = () => {
   DocumentTitle("Links");
 
-  const [groupedLinks, setGroupedLinks] = useState({});
+  const [groupedLinks, setGroupedLinks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 

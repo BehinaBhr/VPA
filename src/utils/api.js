@@ -16,4 +16,14 @@ const fetchAlbums = async () => {
   return fetchData(`${BASE_URL}/api/albums`);
 };
 
-export { fetchLinks, fetchAlbums };
+// Fetch upcoming events
+const fetchUpcomingEvents = async () => {
+  return fetchData(`${BASE_URL}/api/events/upcoming`);
+};
+
+// Fetch past events
+const fetchPastEvents = async () => {
+  return fetchData(`${BASE_URL}/api/events/past`);
+};
+
+export { fetchLinks, fetchAlbums, fetchUpcomingEvents, fetchPastEvents };
