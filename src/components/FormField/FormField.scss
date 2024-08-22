@@ -1,0 +1,30 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.form-field {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: $smallest-space-between;
+
+  &__input {
+    @include body-medium;
+    background-color: $white;
+    color: $fade-black;
+    padding: $smallest-space-between;
+    border: 1px solid $gray;
+    border-radius: $oval-border-radius;
+
+    &:focus {
+      outline: none;
+      border-color: $beige;
+      box-shadow: 0 0 0.1rem $beige;
+    }
+  }
+
+  &__error {
+    border: 0.0625rem solid $red;
+  }
+}

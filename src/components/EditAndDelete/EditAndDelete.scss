@@ -1,0 +1,42 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.edit-and-delete {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $mid-space-between;
+  @include tablet {
+    justify-content: flex-end;
+    gap: $tablet-padding;
+  }
+
+  &__edit {
+    @include labels-links-button;
+    background-color: $light-blue;
+    padding: $tiny-space-between 0;
+    width: 70px;
+    border: 1px solid $fade-black;
+    border-radius: 10px;
+    &:hover {
+      cursor: pointer;
+      border: 1.5px solid $dark-blue;
+    }
+  }
+
+  &__delete {
+    @include labels-links-button;
+    background-color: $light-red;
+    padding: $tiny-space-between 0;
+    width: 70px;
+    border: 1px solid $fade-black;
+    border-radius: 10px;
+    &:hover {
+      cursor: pointer;
+      border: 1.5px solid $red;
+    }
+  }
+}

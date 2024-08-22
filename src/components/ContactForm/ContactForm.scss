@@ -33,6 +33,7 @@
       &:focus {
         outline: none;
         border-color: $beige;
+        box-shadow: 0 0 0.1rem $beige;
       }
     }
   }

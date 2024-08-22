@@ -13,33 +13,22 @@
     align-items: flex-start;
   }
 
-  &__title {
-    @include subheader;
-  }
-
-  &__album {
+  &__header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    gap: $mobile-padding;
+    gap: $small-space-between;
     @include tablet {
-      align-items: flex-start;
+      flex-direction: row;
+      justify-content: space-between;
     }
 
-    &-header {
-      text-align: center;
-      @include body-large;
+    &-title {
+      @include subheader;
     }
-
-    &-fram {
-      cursor: pointer;
-      align-self: center;
-      background-color: $soft-white;
-      border: 1px solid $sand;
-      border-radius: 10px;
+    &-divider {
       width: 100%;
-      height: 50vh;
+      border: 0.25px solid darknavy;
     }
   }
 }
