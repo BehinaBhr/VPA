@@ -26,13 +26,13 @@ const Album = ({ id, date, name, src }) => {
   };
 
   return (
-    <div className="gallery__album">
-      <h3 className="gallery__album-header">
+    <div className="album">
+      <h3 className="album__header">
         {date} | {name}
       </h3>
       <iframe
         src={`https://drive.google.com/embeddedfolderview?id=${src}#grid`}
-        className="gallery__album-frame"
+        className="album__frame"
         title={`Google Drive Folder - ${name}`}
         allowFullScreen
       ></iframe>
