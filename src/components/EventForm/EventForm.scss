@@ -1,0 +1,45 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.event-form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: $mid-space-between;
+  @include tablet {
+    gap: $tablet-padding;
+  }
+
+  &__body {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: $tablet-padding;
+    @include tablet {
+      gap: $large-space-between;
+    }
+    
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: $mobile-padding;
+      @include desktop {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    &-subtitle {
+      @include body-large;
+      font-weight: bold;
+      color: $dark-wood;
+      margin-bottom: $mid-space-between;
+    }
+  }
+}
+details {
+  cursor: pointer;
+}

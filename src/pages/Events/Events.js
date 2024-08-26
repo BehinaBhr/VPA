@@ -3,8 +3,9 @@ import { DocumentTitle } from "../../utils/utils";
 import Event from "../../components/Event/Event.js";
 import { useEffect, useState } from "react";
 import { fetchUpcomingEvents, fetchPastEvents } from "../../utils/api.js";
-import Loading from "../../components/Loading /Loading.js";
+import Loading from "../../components/Loading/Loading.js";
 import ConnectionError from "../../components/ConnectionError/ConnectionError";
+import AddButton from "../../components/AddButton/AddButton";
 
 const Events = () => {
   DocumentTitle("Events");
@@ -43,22 +44,26 @@ const Events = () => {
     <div className="events" id="events">
       <section className="events__header">
         <h2 className="events__header-title">Events</h2>
-        <div className="events__header-segments">
-          <button
-            type="button"
-            className={`events__header-segments-button ${view === "upcoming" ? "selected" : ""}`}
-            onClick={() => setView("upcoming")}
-          >
-            <div>Upcoming</div>
-          </button>
-          <button
-            type="button"
-            className={`events__header-segments-button ${view === "past" ? "selected" : ""}`}
-            onClick={() => setView("past")}
-          >
-            <div>Past</div>
-          </button>
-        </div>
+
+        <sectoin className="events__header-actions">
+
+          <div className="events__header-segments">
+            <button
+              className={`events__header-segments-button ${view === "upcoming" ? "selected" : ""}`}
+              onClick={() => setView("upcoming")}
+            >
+              <div>Upcoming</div>
+            </button>
+            <button
+              className={`events__header-segments-button ${view === "past" ? "selected" : ""}`}
+              onClick={() => setView("past")}
+            >
+              <div>Past</div>
+            </button>
+          </div>
+          
+          <AddButton target="Event" link_to="/events/new" />
+        </sectoin>
       </section>
 
       {sortedEvents.map((event) => (

@@ -9,7 +9,7 @@ const NewAlbum = () => {
     await createAlbum(albumData);
   };
 
-  return <AlbumForm title="Add New Album" formSubmitHandler={handleSubmit} />;
+  return <AlbumForm header="Add New Album" formSubmitHandler={handleSubmit} />;
 };
 
 export default NewAlbum;

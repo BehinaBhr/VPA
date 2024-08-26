@@ -15,14 +15,27 @@
   @include desktop {
     gap: $large-space-between;
   }
+
   &__header {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
 
     &-title {
       @include subheader;
+    }
+
+    &-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $small-space-between;
+      @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
 
     &-segments {

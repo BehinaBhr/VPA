@@ -1,7 +1,7 @@
 import "./AlbumForm.scss";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FormatedSrc } from "../../utils/utils";
+import { FormattedSrc } from "../../utils/utils";
 import BackButtonAndHeader from "../../components/BackButtonAndHeader/BackButtonAndHeader";
 import CancelAndSubmit from "../../components/CancelAndSubmit/CancelAndSubmit";
 import FormField from "../../components/FormField/FormField";
@@ -9,19 +9,20 @@ import FailedSubmitError from "../../components/FailedSubmitError/FailedSubmitEr
 import SuccessfulSubmitMessage from "../../components/SuccessfulSubmitMessage/SuccessfulSubmitMessage";
 
 // A form used in both edit and add album
-const AlbumForm = ({ title, formSubmitHandler, album = null }) => {
+const AlbumForm = ({ header, formSubmitHandler, album = null }) => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [src, setSrc] = useState("");
   const [errors, setErrors] = useState({});
   const [submitError, setSubmitError] = useState("");
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (album) {
       setName(album.name);
       setDate(album.date);
-      setSrc(FormatedSrc(album.src));
+      setSrc(FormattedSrc(album.src));
     }
   }, [album]);
 
@@ -64,14 +65,13 @@ const AlbumForm = ({ title, formSubmitHandler, album = null }) => {
   };
 
   // Go back to the previous page
-  const navigate = useNavigate();
   const handleCancel = () => {
     navigate(-1);
   };
 
   return (
     <div className="album-form">
-      <BackButtonAndHeader title={title} />
+      <BackButtonAndHeader header={header} />
       <form className="album-form__body" onSubmit={onSubmit}>
         <section className="album-form__body-info">
           <FormField field_name="name" errors={errors} errorSetter={setErrors} value={name} valueSetter={setName} />
@@ -88,7 +88,7 @@ const AlbumForm = ({ title, formSubmitHandler, album = null }) => {
         <CancelAndSubmit onCancel={handleCancel} submitType="save" />
       </form>
       {/* Display success or error messages */}
-      {submitSuccess && <SuccessfulSubmitMessage message="Album added successfully!" />}
+      {submitSuccess && <SuccessfulSubmitMessage message="Album submitted successfully!" />}
       {submitError && <FailedSubmitError error={submitError} />}
     </div>
   );
