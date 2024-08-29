@@ -44,28 +44,23 @@ const Events = () => {
     <div className="events" id="events">
       <section className="events__header">
         <h2 className="events__header-title">Events</h2>
-
-        <sectoin className="events__header-actions">
-
-          <div className="events__header-segments">
-            <button
-              className={`events__header-segments-button ${view === "upcoming" ? "selected" : ""}`}
-              onClick={() => setView("upcoming")}
-            >
-              <div>Upcoming</div>
-            </button>
-            <button
-              className={`events__header-segments-button ${view === "past" ? "selected" : ""}`}
-              onClick={() => setView("past")}
-            >
-              <div>Past</div>
-            </button>
-          </div>
-          
-          <AddButton target="Event" link_to="/events/new" />
-        </sectoin>
+        <AddButton target="Event" link_to="/events/new" />
       </section>
-
+      
+      <section className="events__tabs">
+        <button
+          className={`events__tabs-button ${view === "upcoming" ? "selected" : ""}`}
+          onClick={() => setView("upcoming")}
+        >
+          <div>Upcoming</div>
+        </button>
+        <button
+          className={`events__tabs-button ${view === "past" ? "selected" : ""}`}
+          onClick={() => setView("past")}
+        >
+          <div>Past</div>
+        </button>
+      </section>
       {sortedEvents.map((event) => (
         <Event
           key={event.id}
