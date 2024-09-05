@@ -6,10 +6,39 @@ const fetchData = async (path) => {
   return response.data;
 };
 
-// Fetch all links grouped by group_name
-const fetchLinks = async () => {
-  return fetchData(`${BASE_URL}/api/links`);
+
+// Fetch all groups 
+const fetchGroups = async () => {
+  return fetchData(`${BASE_URL}/api/groups`);
 };
+
+// Fetch a single group by ID
+const fetchGroup = async (groupId) => {
+  return fetchData(`${BASE_URL}/api/groups/${groupId}`);
+};
+
+// Fetch a group of links by group_id
+const fetchGroupedLink = async (groupId) => {
+  return fetchData(`${BASE_URL}/api/groups/${groupId}/links`);
+};
+
+const createGroup = async (groupData) => {
+  await axios.post(`${BASE_URL}/api/groups`, groupData);
+};
+
+const updateGroup = async (groupId, groupData) => {
+  await axios.put(`${BASE_URL}/api/groups/${groupId}`, groupData);
+};
+
+const deleteGroup = async (groupId, setHasError) => {
+  try {
+    await axios.delete(`${BASE_URL}/api/groups/${groupId}`);
+  } catch {
+    setHasError(true);
+  }
+};
+
+////////////////////////////////////////////////////////////////
 
 // Fetch a single link by ID
 const fetchLink = async (linkId) => {
@@ -99,7 +128,12 @@ const deleteEvent = async (eventId, setHasError) => {
 };
 
 export {
-  fetchLinks,
+  fetchGroups,
+  fetchGroup,
+  fetchGroupedLink ,
+  createGroup,
+  updateGroup,
+  deleteGroup,
   fetchLink,
   createLink,
   updateLink,

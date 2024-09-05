@@ -139,8 +139,7 @@
       color: $dark-gray;
     }
   }
-}
-
-.edit-and-delete {
-  justify-content: flex-start !important;
+  .edit-and-delete {
+    justify-content: flex-start;
+  }
 }

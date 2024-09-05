@@ -6,37 +6,59 @@
 .edit-and-delete {
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: $mid-space-between;
+  gap: $small-space-between;
   @include tablet {
     justify-content: flex-end;
-    gap: $tablet-padding;
   }
 
   &__edit {
-    @include labels-links-button;
-    background-color: $light-blue;
-    padding: $tiny-space-between 0;
+    display: flex;
     width: 70px;
-    border: 1px solid $fade-black;
+    align-items: center;
+    justify-content: center;
+    padding: $tiny-space-between 0;
     border-radius: 10px;
+    border: 1px solid $fade-black;
+    background-color: $light-silver;
     &:hover {
       cursor: pointer;
+      background-color: $light-blue;
       border: 1.5px solid $dark-blue;
+    }
+
+    &-icon {
+      width: 20px;
+      display: none;
+    }
+
+    &-text {
+      @include labels-links-button;
     }
   }
 
   &__delete {
-    @include labels-links-button;
-    background-color: $light-red;
-    padding: $tiny-space-between 0;
+    display: flex;
     width: 70px;
-    border: 1px solid $fade-black;
+    align-items: center;
+    justify-content: center;
+    padding: $tiny-space-between 0;
     border-radius: 10px;
+    border: 1px solid $fade-black;
+    background-color: $silver;
     &:hover {
       cursor: pointer;
       border: 1.5px solid $red;
+      background-color: $light-red;
+    }
+
+    &-icon {
+      width: 20px;
+      display: none;
+    }
+
+    &-text {
+      @include labels-links-button;
     }
   }
 }

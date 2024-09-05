@@ -10,8 +10,10 @@ import NewAlbum from "./pages/Gallery/NewAlbum/NewAlbum";
 import EditAlbum from "./pages/Gallery/EditAlbum/EditAlbum";
 import Join from "./pages/Join/Join";
 import Links from "./pages/Links/Links.js";
-// import NewLink from "./pages/Links/NewLink/NewLink";
-// import EditLink from "./pages/Links/EditLink/EditLink";
+import NewLink from "./pages/Links/NewLink/NewLink";
+import EditLink from "./pages/Links/EditLink/EditLink";
+import NewGroup from "./pages/Links/NewGroup/NewGroup";
+import EditGroup from "./pages/Links/EditGroup/EditGroup";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import NotFound from "./pages/NotFound/NotFound";
@@ -33,8 +35,10 @@ function App() {
             <Route path="/gallery/:albumId/edit" element={<EditAlbum />} />
             <Route path="/join" element={<Join />} />
             <Route path="/links" element={<Links />} />
-            {/* <Route path="/links/new" element={<NewLink/>} />
-            <Route path="/links/group/:linkGroupName" element={<EditLink />} /> */}
+            <Route path="/links/new" element={<NewLink />} />
+            <Route path="/links/:linkId/edit" element={<EditLink />} />
+            <Route path="/groups/new" element={<NewGroup />} />
+            <Route path="/groups/:groupId/edit" element={<EditGroup />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

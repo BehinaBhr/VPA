@@ -4,7 +4,7 @@ import SuccessfulSubmitMessage from "../../components/SuccessfulSubmitMessage/Su
 import FailedSubmitError from "../../components/FailedSubmitError/FailedSubmitError";
 
 // A confirmation modal displayed after the delete button being clicked
-const DeleteModal = ({ target, onCancel, onDelete, error, success}) => {
+const DeleteModal = ({ target, onCancel, onDelete, error, success }) => {
   return (
     <div className="delete-modal__background">
       <div className="delete-modal">
@@ -14,7 +14,7 @@ const DeleteModal = ({ target, onCancel, onDelete, error, success}) => {
         </p>
         <CancelAndSubmit onCancel={onCancel} onDelete={onDelete} submitType="delete" />
         {/* Display success or error messages */}
-        {success && <SuccessfulSubmitMessage message="Album deleted successfully!" />}
+        {success && <SuccessfulSubmitMessage message={`${target} deleted successfully!`} />}
         {error && <FailedSubmitError error={error} />}
       </div>
     </div>
