@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import "./NavList.scss";
 
-const Nav = () => {
+const NavList = () => {
   const location = useLocation();
 
   return (
@@ -13,7 +13,9 @@ const Nav = () => {
         <li className={`nav-list__item ${location.pathname === "/events" ? "nav-list__item--active" : ""}`}>Events</li>
       </Link>
       <Link to={"/gallery"}>
-        <li className={`nav-list__item ${location.pathname === "/gallery" ? "nav-list__item--active" : ""}`}>Gallery</li>
+        <li className={`nav-list__item ${location.pathname === "/gallery" ? "nav-list__item--active" : ""}`}>
+          Gallery
+        </li>
       </Link>
       <Link to={"/join"}>
         <li className={`nav-list__item ${location.pathname === "/join" ? "nav-list__item--active" : ""}`}>Join</li>
@@ -25,10 +27,12 @@ const Nav = () => {
         <li className={`nav-list__item ${location.pathname === "/about" ? "nav-list__item--active" : ""}`}>About</li>
       </Link>
       <Link to={"/contact"}>
-        <li className={`nav-list__item ${location.pathname === "/contact" ? "nav-list__item--active" : ""}`}>Contact</li>
+        <li className={`nav-list__item ${location.pathname === "/contact" ? "nav-list__item--active" : ""}`}>
+          Contact
+        </li>
       </Link>
     </ul>
   );
 };
 
-export default Nav;
+export default NavList;

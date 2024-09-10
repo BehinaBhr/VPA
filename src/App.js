@@ -2,6 +2,7 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
+import Admin from "./pages/Admin/Admin";
 import Events from "./pages/Events/Events";
 import NewEvent from "./pages/Events/NewEvent/NewEvent";
 import EditEvent from "./pages/Events/EditEvent/EditEvent";
@@ -18,34 +19,103 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import NotFound from "./pages/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
+import { useEffect, useState } from "react";
+import { supabase } from "./utils/supabaseClient";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import { AuthProvider } from "./utils/auth.js";
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const { data } = await supabase.auth.getSession();
+      setUser(data?.session?.user || null);
+    };
+
+    checkAuth();
+
+    // Listen to auth state changes
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+      setUser(session?.user || null);
+    });
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, []);
+
   return (
     <div className="app">
-      <BrowserRouter>
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/events/new" element={<NewEvent />} />
-            <Route path="/events/:eventId/edit" element={<EditEvent />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/gallery/new" element={<NewAlbum />} />
-            <Route path="/gallery/:albumId/edit" element={<EditAlbum />} />
-            <Route path="/join" element={<Join />} />
-            <Route path="/links" element={<Links />} />
-            <Route path="/links/new" element={<NewLink />} />
-            <Route path="/links/:linkId/edit" element={<EditLink />} />
-            <Route path="/groups/new" element={<NewGroup />} />
-            <Route path="/groups/:groupId/edit" element={<EditGroup />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/admin" element={<Admin />} />
+              <Route path="/events" element={<Events />} />
+              <Route
+                path="/events/new"
+                element={
+                  <ProtectedRoute user={user}>
+                    <NewEvent />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/events/:eventId/edit"
+                element={
+                  <ProtectedRoute user={user}>
+                    <EditEvent />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/gallery/new" element={<NewAlbum />} />
+              <Route path="/gallery/:albumId/edit" element={<EditAlbum />} />
+              <Route path="/join" element={<Join />} />
+              <Route path="/links" element={<Links />} />
+              <Route
+                path="/links/new"
+                element={
+                  <ProtectedRoute user={user}>
+                    <NewLink />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/links/:linkId/edit"
+                element={
+                  <ProtectedRoute user={user}>
+                    <EditLink />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/groups/new"
+                element={
+                  <ProtectedRoute user={user}>
+                    <NewGroup />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/groups/:groupId/edit"
+                element={
+                  <ProtectedRoute user={user}>
+                    <EditGroup />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

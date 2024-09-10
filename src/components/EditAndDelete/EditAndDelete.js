@@ -2,8 +2,13 @@ import "./EditAndDelete.scss";
 import { Link } from "react-router-dom";
 import editIcon from "../../assets/images/edit.svg";
 import deleteIcon from "../../assets/images/delete.svg";
+import { useAuth } from "../../utils/auth.js";
 
 const EditAndDelete = ({ edit_to, onDelete }) => {
+  const { isAuthenticated } = useAuth();
+  // If not authenticated, return null (hide the button)
+  if (!isAuthenticated) return null;
+
   return (
     <section className="edit-and-delete">
       <Link to={edit_to}>
