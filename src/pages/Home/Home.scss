@@ -134,17 +134,17 @@
     button {
       @include body-large;
       font-weight: bold;
-      background-color: $dark-wood;
+      background-color: $orange;
       border: 2px solid $black;
       border-radius: 7px;
       background-size: 200% auto;
       background-image: linear-gradient(
         to right,
-        $dark-wood 0%,
-        $dark-wood 50%,
-        $wood 50%,
-        $light-wood 75%,
-        $cream 100%
+        $orange 0%,
+        $orange 50%,
+        $light-orange 50%,
+        $light-orange 75%,
+        $lighter-orange 100%
       );
       transition: background-position 0.4s ease-in-out, height 0.4s, width 0.4s;
       height: 36px;

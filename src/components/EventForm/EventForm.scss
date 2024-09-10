@@ -21,7 +21,7 @@
     @include tablet {
       gap: $large-space-between;
     }
-    
+
     &-info {
       display: flex;
       flex-direction: column;
@@ -35,7 +35,7 @@
     &-subtitle {
       @include body-large;
       font-weight: bold;
-      color: $dark-wood;
+      color: $dark-orange;
       margin-bottom: $mid-space-between;
     }
   }

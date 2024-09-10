@@ -32,14 +32,14 @@
 
   &__links {
     display: flex;
-    width:90%;
+    width: 90%;
     flex-direction: column;
     gap: $mobile-padding;
 
     &-header {
       @include body-large;
       font-weight: bold;
-      color:$dark-wood;
+      color: $dark-orange;
     }
     &-item {
       text-decoration: underline;
