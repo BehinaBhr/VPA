@@ -1,13 +1,45 @@
 import axios from "axios";
 import { BASE_URL } from "./constant-variables";
+const token = sessionStorage.getItem("access_token");
 
 const fetchData = async (path) => {
-  const response = await axios.get(path);
+  const response = await axios.get(path, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
   return response.data;
 };
 
+const putData = async (path, data) => {
+  await axios.put(path, data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
+};
 
-// Fetch all groups 
+const postData = async (path, data) => {
+  await axios.post(path, data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
+};
+
+const deleteData = async (path) => {
+  await axios.delete(path, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
+};
+
+// Fetch all groups
 const fetchGroups = async () => {
   return fetchData(`${BASE_URL}/api/groups`);
 };
@@ -23,16 +55,16 @@ const fetchGroupedLink = async (groupId) => {
 };
 
 const createGroup = async (groupData) => {
-  await axios.post(`${BASE_URL}/api/groups`, groupData);
+  return postData(`${BASE_URL}/api/groups`, groupData);
 };
 
 const updateGroup = async (groupId, groupData) => {
-  await axios.put(`${BASE_URL}/api/groups/${groupId}`, groupData);
+  await putData(`${BASE_URL}/api/groups/${groupId}`, groupData);
 };
 
 const deleteGroup = async (groupId, setHasError) => {
   try {
-    await axios.delete(`${BASE_URL}/api/groups/${groupId}`);
+    return deleteData(`${BASE_URL}/api/groups/${groupId}`);
   } catch {
     setHasError(true);
   }
@@ -46,16 +78,16 @@ const fetchLink = async (linkId) => {
 };
 
 const createLink = async (linkData) => {
-  await axios.post(`${BASE_URL}/api/links`, linkData);
+  return postData(`${BASE_URL}/api/links`, linkData);
 };
 
 const updateLink = async (linkId, linkData) => {
-  await axios.put(`${BASE_URL}/api/links/${linkId}`, linkData);
+  return putData(`${BASE_URL}/api/links/${linkId}`, linkData);
 };
 
 const deleteLink = async (linkId, setHasError) => {
   try {
-    await axios.delete(`${BASE_URL}/api/links/${linkId}`);
+    return deleteData(`${BASE_URL}/api/links/${linkId}`);
   } catch {
     setHasError(true);
   }
@@ -74,16 +106,16 @@ const fetchAlbum = async (albumId) => {
 };
 
 const createAlbum = async (albumData) => {
-  await axios.post(`${BASE_URL}/api/albums`, albumData);
+  return postData(`${BASE_URL}/api/albums`, albumData);
 };
 
 const updateAlbum = async (albumId, albumData) => {
-  await axios.put(`${BASE_URL}/api/albums/${albumId}`, albumData);
+  return putData(`${BASE_URL}/api/albums/${albumId}`, albumData);
 };
 
 const deleteAlbum = async (albumId, setHasError) => {
   try {
-    await axios.delete(`${BASE_URL}/api/albums/${albumId}`);
+    return deleteData(`${BASE_URL}/api/albums/${albumId}`);
   } catch {
     setHasError(true);
   }
@@ -112,16 +144,16 @@ const fetchEvent = async (eventId) => {
 };
 
 const updateEvent = async (eventId, eventData) => {
-  await axios.put(`${BASE_URL}/api/events/${eventId}`, eventData);
+  return putData(`${BASE_URL}/api/events/${eventId}`, eventData);
 };
 
 const createEvent = async (eventData) => {
-  await axios.post(`${BASE_URL}/api/events/`, eventData);
+  return postData(`${BASE_URL}/api/events/`, eventData);
 };
 
 const deleteEvent = async (eventId, setHasError) => {
   try {
-    await axios.delete(`${BASE_URL}/api/events/${eventId}`);
+    return deleteData(`${BASE_URL}/api/events/${eventId}`);
   } catch {
     setHasError(true);
   }
@@ -130,7 +162,7 @@ const deleteEvent = async (eventId, setHasError) => {
 export {
   fetchGroups,
   fetchGroup,
-  fetchGroupedLink ,
+  fetchGroupedLink,
   createGroup,
   updateGroup,
   deleteGroup,
