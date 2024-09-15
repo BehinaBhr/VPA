@@ -2,8 +2,7 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
-import Login from "./pages/Login/Login";
-import Success from "./pages/Success/Success";
+import Admin from "./pages/Admin/Admin";
 import Events from "./pages/Events/Events";
 import NewEvent from "./pages/Events/NewEvent/NewEvent";
 import EditEvent from "./pages/Events/EditEvent/EditEvent";
@@ -54,8 +53,7 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/success" element={<Success />} />
+              <Route path="/admin" element={<Admin />} />
               <Route path="/events" element={<Events />} />
               <Route
                 path="/events/new"

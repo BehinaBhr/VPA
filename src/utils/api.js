@@ -3,12 +3,7 @@ import { BASE_URL } from "./constant-variables";
 const token = sessionStorage.getItem("access_token");
 
 const fetchData = async (path) => {
-  const response = await axios.get(path, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-  });
+  const response = await axios.get(path);
   return response.data;
 };
 
@@ -159,6 +154,17 @@ const deleteEvent = async (eventId, setHasError) => {
   }
 };
 
+////////////////////////////////////////////////////////////////
+
+const login = async (credentials) => {
+  const response = await axios.post(`${BASE_URL}/api/admin/login`, credentials);
+  return response.data
+};
+
+const logout = async () => {
+  await axios.post(`${BASE_URL}/api/admin/logout`);
+};
+
 export {
   fetchGroups,
   fetchGroup,
@@ -182,4 +188,6 @@ export {
   createEvent,
   updateEvent,
   deleteEvent,
+  login,
+  logout,
 };
