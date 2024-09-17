@@ -62,4 +62,13 @@
       }
     }
   }
+
+  &__message {
+    display: flex;
+    align-self: center;
+    text-align: center;
+    @include body-large;
+    color: $fade-black;
+    margin-top: $mid-space-between;
+  }
 }
