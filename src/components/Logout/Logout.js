@@ -3,10 +3,13 @@ import { useState } from "react";
 import FailedSubmitError from "../FailedSubmitError/FailedSubmitError";
 import SuccessfulSubmitMessage from "../SuccessfulSubmitMessage/SuccessfulSubmitMessage";
 import { logout } from "../../utils/api";
+import { useAuth } from "../../utils/auth.js";
 
-const Logout = ({ setToken }) => {
+const Logout = () => {
   const [submitError, setSubmitError] = useState("");
   const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const { removeAccessToken } = useAuth();
 
   const onClick = async (e) => {
     e.preventDefault();
@@ -15,8 +18,7 @@ const Logout = ({ setToken }) => {
 
     try {
       await logout();
-      setToken(null);
-      sessionStorage.removeItem("access_token");
+      removeAccessToken();
       setSubmitSuccess(true);
     } catch (error) {
       const backendError = error.response?.data?.message;

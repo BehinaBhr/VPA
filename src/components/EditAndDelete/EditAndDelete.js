@@ -5,9 +5,10 @@ import deleteIcon from "../../assets/images/delete.svg";
 import { useAuth } from "../../utils/auth.js";
 
 const EditAndDelete = ({ edit_to, onDelete }) => {
-  const { isAuthenticated } = useAuth();
+  const { token } = useAuth();
+  
   // If not authenticated, return null (hide the button)
-  if (!isAuthenticated) return null;
+  if (!token) return null;
 
   return (
     <section className="edit-and-delete">

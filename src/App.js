@@ -19,36 +19,14 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import NotFound from "./pages/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
-import { useEffect, useState } from "react";
-import { supabase } from "./utils/supabaseClient";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import { AuthProvider } from "./utils/auth.js";
 
 function App() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      const { data } = await supabase.auth.getSession();
-      setUser(data?.session?.user || null);
-    };
-
-    checkAuth();
-
-    // Listen to auth state changes
-    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-      setUser(session?.user || null);
-    });
-
-    return () => {
-      authListener.subscription.unsubscribe();
-    };
-  }, []);
-
   return (
     <div className="app">
-      <AuthProvider>
-        <BrowserRouter>
+      <BrowserRouter>
+        <AuthProvider>
           <Header />
           <main>
             <Routes>
@@ -58,7 +36,7 @@ function App() {
               <Route
                 path="/events/new"
                 element={
-                  <ProtectedRoute user={user}>
+                  <ProtectedRoute>
                     <NewEvent />
                   </ProtectedRoute>
                 }
@@ -66,20 +44,34 @@ function App() {
               <Route
                 path="/events/:eventId/edit"
                 element={
-                  <ProtectedRoute user={user}>
+                  <ProtectedRoute>
                     <EditEvent />
                   </ProtectedRoute>
                 }
               />
               <Route path="/gallery" element={<Gallery />} />
-              <Route path="/gallery/new" element={<NewAlbum />} />
-              <Route path="/gallery/:albumId/edit" element={<EditAlbum />} />
+              <Route
+                path="/gallery/new"
+                element={
+                  <ProtectedRoute>
+                    <NewAlbum />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/gallery/:albumId/edit"
+                element={
+                  <ProtectedRoute>
+                    <EditAlbum />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="/join" element={<Join />} />
               <Route path="/links" element={<Links />} />
               <Route
                 path="/links/new"
                 element={
-                  <ProtectedRoute user={user}>
+                  <ProtectedRoute>
                     <NewLink />
                   </ProtectedRoute>
                 }
@@ -87,7 +79,7 @@ function App() {
               <Route
                 path="/links/:linkId/edit"
                 element={
-                  <ProtectedRoute user={user}>
+                  <ProtectedRoute>
                     <EditLink />
                   </ProtectedRoute>
                 }
@@ -95,7 +87,7 @@ function App() {
               <Route
                 path="/groups/new"
                 element={
-                  <ProtectedRoute user={user}>
+                  <ProtectedRoute>
                     <NewGroup />
                   </ProtectedRoute>
                 }
@@ -103,7 +95,7 @@ function App() {
               <Route
                 path="/groups/:groupId/edit"
                 element={
-                  <ProtectedRoute user={user}>
+                  <ProtectedRoute>
                     <EditGroup />
                   </ProtectedRoute>
                 }
@@ -114,8 +106,8 @@ function App() {
             </Routes>
           </main>
           <Footer />
-        </BrowserRouter>
-      </AuthProvider>
+        </AuthProvider>
+      </BrowserRouter>
     </div>
   );
 }

@@ -3,19 +3,11 @@ import { DocumentTitle } from "../../utils/utils";
 import adminIcon from "../../assets/images/admin.svg";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import Logout from "../../components/Logout/Logout";
-import { useEffect, useState } from "react";
+import { useAuth } from "../../utils/auth.js";
 
 const Admin = () => {
-  const [token, setToken] = useState(null);
-
-  useEffect(() => {
-    const token = sessionStorage.getItem("access_token");
-    if (token) {
-      setToken(token);
-    }
-  }, []);
-
   DocumentTitle("Admin Panel");
+  const { token } = useAuth();
 
   return (
     <div className="admin">
@@ -31,7 +23,7 @@ const Admin = () => {
         </p>
       </section>
 
-      {token ? <Logout setToken={setToken} /> : <LoginForm setToken={setToken} />}
+      {token ? <Logout /> : <LoginForm />}
     </div>
   );
 };

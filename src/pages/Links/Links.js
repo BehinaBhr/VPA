@@ -6,10 +6,11 @@ import Loading from "../../components/Loading/Loading.js";
 import ConnectionError from "../../components/ConnectionError/ConnectionError";
 import LinkGroup from "../../components/LinkGroup/LinkGroup";
 import AddButton from "../../components/AddButton/AddButton";
+import { useAuth } from "../../utils/auth.js";
 
 const Links = () => {
   DocumentTitle("Links");
-
+  const { token } = useAuth();
   const [groups, setGroups] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -27,7 +28,7 @@ const Links = () => {
     };
 
     fetchData();
-  }, []);
+  }, [token]);
 
   if (hasError) return <ConnectionError error={`Unable to access links right now. Please try again later`} />;
   if (isLoading) return <Loading />;

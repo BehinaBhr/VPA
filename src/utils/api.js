@@ -1,6 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "./constant-variables";
-const token = sessionStorage.getItem("access_token");
+
+const token = localStorage.getItem("access_token");
 
 const fetchData = async (path) => {
   const response = await axios.get(path);
@@ -33,6 +34,8 @@ const deleteData = async (path) => {
     },
   });
 };
+
+////////////////////////////////////////////////////////////////
 
 // Fetch all groups
 const fetchGroups = async () => {

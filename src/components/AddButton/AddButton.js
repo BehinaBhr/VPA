@@ -4,9 +4,9 @@ import { useAuth } from "../../utils/auth.js";
 
 // Add a new item
 function AddButton({ target, link_to }) {
-  const { isAuthenticated } = useAuth();
+  const { token } = useAuth();
   // If not authenticated, return null (hide the button)
-  if (!isAuthenticated) return null;
+  if (!token) return null;
 
   return (
     <Link to={link_to}>

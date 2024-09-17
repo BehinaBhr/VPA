@@ -4,14 +4,17 @@ import FormField from "../FormField/FormField";
 import FailedSubmitError from "../FailedSubmitError/FailedSubmitError";
 import SuccessfulSubmitMessage from "../SuccessfulSubmitMessage/SuccessfulSubmitMessage";
 import { login } from "../../utils/api";
+import { useAuth } from "../../utils/auth.js";
 
 // A form used in both edit and add group
-const LoginForm = ({ setToken }) => {
+const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassowrd] = useState("");
   const [errors, setErrors] = useState({});
   const [submitError, setSubmitError] = useState("");
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  
+  const { setAccessToken, removeAccessToken } = useAuth();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -27,13 +30,10 @@ const LoginForm = ({ setToken }) => {
     if (Object.keys(errors).length === 0) {
       try {
         const { access_token } = await login({ email, password });
-        console.log(access_token);
-        setToken(access_token);
-        sessionStorage.setItem("access_token", access_token);
+        setAccessToken(access_token);
         setSubmitSuccess(true);
       } catch (error) {
-        setToken(null);
-        sessionStorage.removeItem("access_token");
+        removeAccessToken();
         const backendError = error.response?.data?.message;
         setSubmitError(backendError || "Failed to log in. Please try again.");
         setSubmitSuccess(false);
