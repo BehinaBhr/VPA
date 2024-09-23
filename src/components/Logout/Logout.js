@@ -4,6 +4,7 @@ import FailedSubmitError from "../FailedSubmitError/FailedSubmitError";
 import SuccessfulSubmitMessage from "../SuccessfulSubmitMessage/SuccessfulSubmitMessage";
 import { logout } from "../../utils/api";
 import { useAuth } from "../../utils/auth.js";
+import logoutIcon from "../../assets/images/logout.svg";
 
 const Logout = () => {
   const [submitError, setSubmitError] = useState("");
@@ -29,8 +30,12 @@ const Logout = () => {
 
   return (
     <div className="logout">
-      <form className="logout__body" onSubmit={onClick}>
-        <button>Log Out</button>
+      <form onSubmit={onClick}>
+        <div className="logout__button">
+          <button type="submit">
+            <img className="logout__button-icon" src={logoutIcon} alt="logout icon" /> Logout
+          </button>
+        </div>
       </form>
 
       {submitSuccess && <SuccessfulSubmitMessage message="Successfully logged out!" />}

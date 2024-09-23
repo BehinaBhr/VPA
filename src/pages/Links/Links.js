@@ -9,7 +9,7 @@ import AddButton from "../../components/AddButton/AddButton";
 import { useAuth } from "../../utils/auth.js";
 
 const Links = () => {
-  DocumentTitle("Links");
+  DocumentTitle("Resources");
   const { token } = useAuth();
   const [groups, setGroups] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

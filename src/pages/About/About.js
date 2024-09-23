@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className="about">
       <section className="about__section">
-        <h2 className="about__section-title">About Us</h2>
+        <h2 className="about__section-header">About Us</h2>
         <p className="about__section-content">
           The Vancouver Persian Architects (VPA) Association is an independent, non-religious, non-political, and
           non-profit organization founded by Iranian graduate architects.

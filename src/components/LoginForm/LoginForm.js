@@ -5,15 +5,16 @@ import FailedSubmitError from "../FailedSubmitError/FailedSubmitError";
 import SuccessfulSubmitMessage from "../SuccessfulSubmitMessage/SuccessfulSubmitMessage";
 import { login } from "../../utils/api";
 import { useAuth } from "../../utils/auth.js";
+import loginIcon from "../../assets/images/login.svg";
 
-// A form used in both edit and add group
+// A form used in login in admin page.
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassowrd] = useState("");
   const [errors, setErrors] = useState({});
   const [submitError, setSubmitError] = useState("");
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  
+
   const { setAccessToken, removeAccessToken } = useAuth();
 
   const onSubmit = async (e) => {
@@ -48,9 +49,11 @@ const LoginForm = () => {
           <FormField field_name="email" errors={errors} errorSetter={setErrors} valueSetter={setEmail} />
           <FormField field_name="password" errors={errors} errorSetter={setErrors} valueSetter={setPassowrd} />
         </section>
-        <button className="login-form__save" type="submit">
-          Log In
-        </button>
+        <div className="login-form__button">
+          <button type="submit">
+            <img className="login-form__button-icon" src={loginIcon} alt="login icon" /> Login
+          </button>
+        </div>
       </form>
       {submitSuccess && <SuccessfulSubmitMessage message="Successfully logged in!" />}
       {submitError && <FailedSubmitError error={submitError} />}

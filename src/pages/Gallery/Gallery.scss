@@ -20,7 +20,7 @@
     gap: $small-space-between;
 
     &-title {
-      @include subheader;
+      @include header;
     }
   }
 }

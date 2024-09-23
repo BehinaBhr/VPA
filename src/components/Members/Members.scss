@@ -6,7 +6,7 @@
 .members {
   display: flex;
   flex-direction: column;
-  background-color: $lighter-green;
+  background-color: $light-dust;
   padding: $smallest-space-between $mobile-padding $small-space-between $mid-space-between;
   gap: $mid-space-between;
   @include tablet {

@@ -21,7 +21,7 @@
       width: 100px;
     }
     &-title {
-      @include page-header;
+      @include header;
     }
     &-info {
       @include body-large;
@@ -61,10 +61,6 @@
         box-shadow: 3px 3px $gray;
         transform: translateY(4px);
       }
-    }
-
-    &-icon {
-      width: 28px;
     }
   }
 }

@@ -5,7 +5,7 @@
 @use "../../styles/partials/colors" as *;
 
 .footer {
-  background-color: $light-beige;
+  background-color: $warmest-cream;
   margin-top: auto;
 
   &__wrapper {
@@ -57,7 +57,7 @@
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
       &:hover {
         transform: scale(1.02);
-        box-shadow: 0 0 4px $dark-orange;
+        box-shadow: 0 0 4px $beige;
       }
       &-image {
         width: 7rem;
@@ -116,7 +116,8 @@
       }
       &-content {
         @include body-medium;
-        color: $dark-orange;
+        color: $fade-black;
+        font-weight: bold;
       }
     }
     .contact-links {

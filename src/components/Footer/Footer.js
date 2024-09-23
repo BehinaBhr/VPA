@@ -12,7 +12,7 @@ const Footer = () => {
           <section className="footer__header">
             <div className="footer__header-logo">
               <Link to="/">
-                <img className="footer__logo-image" src={Logo} alt="VPA Logo" loading="lazy" />
+                <img className="footer__header-logo-image" src={Logo} alt="VPA Logo" loading="lazy" />
               </Link>
             </div>
             <NavList />

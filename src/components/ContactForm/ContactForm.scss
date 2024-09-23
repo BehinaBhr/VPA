@@ -46,7 +46,7 @@
     button {
       @include labels-links-button;
       padding: $smallest-space-between $tablet-padding;
-      background-color: $sand;
+      background-color: $gold;
       margin-bottom: $smallest-space-between;
       border: none;
       border-radius: $oval-border-radius;
@@ -59,12 +59,5 @@
         transform: translateY(4px);
       }
     }
-  }
-
-  &__success-message {
-    background-color: $dirty;
-    border-radius: 5px;
-    padding: $mobile-padding;
-    @include body-large;
   }
 }

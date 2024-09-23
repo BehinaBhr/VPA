@@ -21,7 +21,7 @@ const NavList = () => {
         <li className={`nav-list__item ${location.pathname === "/join" ? "nav-list__item--active" : ""}`}>Join</li>
       </Link>
       <Link to={"/links"}>
-        <li className={`nav-list__item ${location.pathname === "/links" ? "nav-list__item--active" : ""}`}>Links</li>
+        <li className={`nav-list__item ${location.pathname === "/links" ? "nav-list__item--active" : ""}`}>Resources</li>
       </Link>
       <Link to={"/about"}>
         <li className={`nav-list__item ${location.pathname === "/about" ? "nav-list__item--active" : ""}`}>About</li>

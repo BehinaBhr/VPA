@@ -24,7 +24,7 @@
     }
 
     &-title {
-      @include subheader;
+      @include header;
       @include tablet {
         width: 60%;
       }
