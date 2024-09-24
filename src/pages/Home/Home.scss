@@ -120,7 +120,7 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      gap: $smallest-space-between;
+      gap: $small-space-between;
       @include tablet {
         width: fit-content;
       }
@@ -128,7 +128,21 @@
 
     &-title {
       @include subheader;
-      text-align: center;
+
+      &--link {
+        @include subheader;
+        color: $black;
+        background-size: 200% auto;
+        background-image: linear-gradient(to right, $black 0%, $beige 50%, $gold 50%, $black 100%);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        transition: background-position 0.4s ease-in-out;
+        &:hover {
+          background-position: right center;
+          cursor: pointer;
+        }
+      }
     }
 
     button {
@@ -141,9 +155,9 @@
       background-image: linear-gradient(
         to right,
         $gold 0%,
+        $light-gold 50%,
         $beige 50%,
-        $beige 50%,
-        $gold 75%,
+        $light-gold 75%,
         $warmest-cream 100%
       );
       transition: background-position 0.4s ease-in-out, height 0.4s, width 0.4s;
