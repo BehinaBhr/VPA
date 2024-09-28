@@ -6,7 +6,7 @@
 .members {
   display: flex;
   flex-direction: column;
-  background-color: $light-dust;
+  background-color: $light-blue;
   padding: $smallest-space-between $mobile-padding $small-space-between $mid-space-between;
   gap: $mid-space-between;
   @include tablet {
@@ -44,7 +44,7 @@
   button {
     @include labels-links-button;
     padding: $smallest-space-between $tablet-padding;
-    background-color: $gold;
+    background-color: $blue;
     margin: $smallest-space-between 0;
     border: none;
     border-radius: $oval-border-radius;

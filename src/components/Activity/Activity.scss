@@ -8,14 +8,13 @@
   flex-direction: column-reverse;
   align-items: center;
   cursor: pointer;
-  background-color: $dust;
-  border: 1.5px solid $silver;
+  background-color: $dirty;
+  border: 1.5px solid $light-silver;
   border-radius: 8px;
-  box-shadow: 4px 4px $silver;
-  gap: $small-space-between;
-  padding: $small-space-between;
+  gap: $smallest-space-between;
+  padding-bottom: $smallest-space-between;
   &:hover {
-    border: 2px solid $green;
+    box-shadow: 4px 4px $silver;
   }
 
   &__banner {

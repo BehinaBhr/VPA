@@ -30,9 +30,9 @@
   &__tabs {
     @include body-large;
     display: flex;
-    border: 5px solid $warmer-cream;
+    border: 5px solid $warmest-cream;
     border-radius: 10px;
-    background-color: $warmer-cream;
+    background-color: $warmest-cream;
     gap: $smallest-space-between;
     align-self: center;
 
