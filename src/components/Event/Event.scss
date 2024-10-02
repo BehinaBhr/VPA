@@ -136,7 +136,10 @@
     margin-bottom: $small-space-between;
     &:hover {
       cursor: pointer;
-      color: $dark-gray;
+      color: $beige;
     }
+  }
+  .edit-and-delete {
+    justify-content: flex-start;
   }
 }

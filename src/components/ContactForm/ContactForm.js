@@ -1,6 +1,7 @@
 import "./ContactForm.scss";
 import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import SuccessfulSubmitMessage from "../../components/SuccessfulSubmitMessage/SuccessfulSubmitMessage";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -90,6 +91,7 @@ const ContactForm = () => {
       return () => clearTimeout(timer);
     }
   }, [successMessageVisible]);
+
   return (
     <form className="contact-form" ref={form} onSubmit={handleSubmit}>
       <div className="contact-form__group">
@@ -128,6 +130,7 @@ const ContactForm = () => {
         />
         {errors.message && <span className="error">{errors.message}</span>}
       </div>
+
       {successMessageVisible ? null : (
         <div className="contact-form__button">
           <button type="submit" disabled={isSubmitting}>
@@ -135,11 +138,7 @@ const ContactForm = () => {
           </button>
         </div>
       )}
-      {successMessageVisible && (
-        <div className="contact-form__success-message" aria-live="polite">
-          <p>Thank you for your message!</p>
-        </div>
-      )}
+      {successMessageVisible && <SuccessfulSubmitMessage message="Thanks for your message!" />}
     </form>
   );
 };

@@ -41,6 +41,7 @@ main {
     padding-bottom: $largest-space-between;
     padding-top: $large-space-between;
     max-width: $breakpoint-desktop;
+    min-width: calc($breakpoint-desktop - 2 * $tablet-padding);
     margin: 0 auto;
   }
 }

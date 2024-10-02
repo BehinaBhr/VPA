@@ -2,8 +2,10 @@ import "./Gallery.scss";
 import { DocumentTitle } from "../../utils/utils";
 import { useEffect, useState } from "react";
 import { fetchAlbums } from "../../utils/api.js";
-import Loading from "../../components/Loading /Loading.js";
+import Loading from "../../components/Loading/Loading.js";
 import ConnectionError from "../../components/ConnectionError/ConnectionError";
+import Album from "../../components/Album/Album";
+import AddButton from "../../components/AddButton/AddButton";
 
 const Gallery = () => {
   DocumentTitle("Gallery");
@@ -15,8 +17,8 @@ const Gallery = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const links = await fetchAlbums();
-        setSortedAlbums(links);
+        const albums = await fetchAlbums();
+        setSortedAlbums(albums);
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
@@ -27,25 +29,17 @@ const Gallery = () => {
     fetchData();
   }, []);
 
-  if (hasError) return <ConnectionError error={`Unable to access links right now. Please try again later`} />;
+  if (hasError) return <ConnectionError error={`Unable to access albums in gallery right now. Please try again later`} />;
   if (isLoading) return <Loading />;
 
   return (
     <div className="gallery">
-      <h2 className="gallery__title">VPA Gallery</h2>
-
+      <section className="gallery__header">
+        <h2 className="gallery__header-title">VPA Gallery</h2>
+        <AddButton target="Album" link_to="/gallery/new" />
+      </section>
       {sortedAlbums.map((album) => (
-        <section className="gallery__album" key={album.id}>
-          <h3 className="gallery__album-header">
-            {album.date} | {album.name}
-          </h3>
-          <iframe
-            src={`https://drive.google.com/embeddedfolderview?id=${album.src}#grid`}
-            className="gallery__album-fram"
-            title={`Google Drive Folder - ${album.name}`}
-            allowFullScreen
-          ></iframe>
-        </section>
+        <Album key={album.id} id={album.id} date={album.date} name={album.name} src={album.src} />
       ))}
     </div>
   );

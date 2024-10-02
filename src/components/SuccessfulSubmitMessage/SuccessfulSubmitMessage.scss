@@ -1,0 +1,16 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.successfull-submit-message {
+  @include body-medium;
+  display: flex;
+  width:100%;
+  justify-content: center;
+  align-items: center;
+  color: $dark-green;
+  border-radius: $oval-border-radius;
+  background-color: $light-dust;
+  padding: $small-space-between $mobile-padding;
+}

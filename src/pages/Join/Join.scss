@@ -24,14 +24,17 @@
     }
 
     &-title {
-      @include subheader;
+      @include header;
       @include tablet {
         width: 60%;
       }
     }
 
     &-banner {
+      // position: relative;
+      // display: inline-block;
       img {
+        // display: block;
         width: 18rem;
         overflow: hidden;
         aspect-ratio: 2;
@@ -42,6 +45,17 @@
           width: 25rem;
         }
       }
+      //   &::after {
+      //     content: '';
+      //     position: absolute;
+      //     top: 0;
+      //     left: 0;
+      //     right: 0;
+      //     bottom: 0;
+      //     background-color: #8bb1b06c; /* Adjust color and opacity here */
+      //     pointer-events: none; /* Allows clicks to go through the overlay */
+      // }
+
     }
   }
 
@@ -57,7 +71,7 @@
     }
 
     &-header {
-      @include body-large;
+      @include subheader;
       font-weight: bold;
       text-align: center;
       @include tablet {

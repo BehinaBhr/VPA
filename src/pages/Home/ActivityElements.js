@@ -18,7 +18,7 @@ let ActivityElements = [
   {
     id: 3,
     image: links,
-    title: "Usefull Links",
+    title: "Resources",
     link_to: "/links",
   },
 ];

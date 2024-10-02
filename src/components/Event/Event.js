@@ -6,13 +6,36 @@ import hostIcon from "../../assets/images/host.svg";
 import topicIcon from "../../assets/images/topic.svg";
 import infoIcon from "../../assets/images/info.svg";
 import feeIcon from "../../assets/images/fee.svg";
+import { deleteEvent } from "../../utils/api";
+import DeleteModal from "../DeleteModal/DeleteModal";
+import EditAndDelete from "../../components/EditAndDelete/EditAndDelete";
 
 const Event = ({ id, image, title, date, time, location, topic, host, additional_info, fee, isUpcoming, register }) => {
   const [expanded, setExpanded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const [deleteSuccess, setDeleteSuccess] = useState(false);
 
   const toggleExpand = () => {
     setExpanded(!expanded);
   };
+
+  const toggleDeleteModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const handleDelete = async () => {
+    await deleteEvent(id, setHasError);
+    if (!hasError) {
+      setDeleteSuccess(true);
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    } else {
+      setIsModalOpen(true);
+    }
+  };
+
   return (
     <div className={`event ${expanded ? "event--expanded" : ""}`}>
       <div className="event__poster">
@@ -76,10 +99,23 @@ const Event = ({ id, image, title, date, time, location, topic, host, additional
             )}
           </div>
         )}
+
         <button className="event__see-more" onClick={toggleExpand}>
           {expanded ? "See Less" : "See More"}
         </button>
+
+        <EditAndDelete edit_to={`/events/${id}/edit`} onDelete={toggleDeleteModal} />
       </div>
+
+      {isModalOpen && (
+        <DeleteModal
+          target="event"
+          onDelete={handleDelete}
+          onCancel={toggleDeleteModal}
+          error={hasError ? "Failed to delete the event. Please try again." : ""}
+          success={deleteSuccess}
+        />
+      )}
     </div>
   );
 };

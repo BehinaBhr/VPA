@@ -14,9 +14,8 @@ const MembersElements = [
           target="_blank"
           rel="noreferrer noopener"
         >
-          <button> Sign Up</button>
+          <button>Sign Up</button>
         </a>
-        ,
       </>
     ),
   },

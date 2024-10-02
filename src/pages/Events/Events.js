@@ -2,29 +2,44 @@ import "./Events.scss";
 import { DocumentTitle } from "../../utils/utils";
 import Event from "../../components/Event/Event.js";
 import { useEffect, useState } from "react";
-import { fetchUpcomingEvents, fetchPastEvents } from "../../utils/api.js";
-import Loading from "../../components/Loading /Loading.js";
+import { fetchEvents, fetchUpcomingEvents, fetchPastEvents } from "../../utils/api.js";
+import Loading from "../../components/Loading/Loading.js";
 import ConnectionError from "../../components/ConnectionError/ConnectionError";
+import AddButton from "../../components/AddButton/AddButton";
 
 const Events = () => {
   DocumentTitle("Events");
 
-  const [sortedEvents, setSortedEvents] = useState([]);
+  // By keeping allEvents and events separate, we can avoid redundant API requests when switching between views.
+  const [events, setEvents] = useState([]);
+  const [allEvents, setAllEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const [view, setView] = useState("upcoming");
+  const [view, setView] = useState(() => sessionStorage.getItem("eventView") || "all");
 
+  // Save the selected view to sessionStorage to persist the user's choice within the current session, allowing the view to be maintained across page refreshes.
+  // The view will reset to "all" when a new session starts, ensuring a fresh state for new sessions.
+  useEffect(() => {
+    sessionStorage.setItem("eventView", view);
+  }, [view]);
+
+  // Fetch events based on the selected view
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        let events;
-        if (view === "upcoming") {
-          events = await fetchUpcomingEvents();
-        } else {
-          events = await fetchPastEvents();
+        let fetchedEvents = [];
+        // Fetch all events and cache them in allEvents state if the view is "all" to avoid redundant API requests when switching between views.
+        if (view === "all") {
+          fetchedEvents = await fetchEvents();
+          setAllEvents(fetchedEvents);
+        } else if (view === "upcoming") {
+          fetchedEvents = await fetchUpcomingEvents();
+        } else if (view === "past") {
+          fetchedEvents = await fetchPastEvents();
         }
-        setSortedEvents(events);
+
+        setEvents(fetchedEvents);
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
@@ -32,52 +47,75 @@ const Events = () => {
       }
     };
 
-    fetchData();
-  }, [view]);
+    // Check if the current view is "all" and we already have cached data allEvents, no need to re-fetch to reduce the number of redundant API requests. Otherwise, proceed to fetch the relevant data base on the view.
+    // Re-run this effect whenever the view or allEvents state changes to ensure the displayed events is updated.
+    if (view === "all" && allEvents.length > 0) {
+      setEvents(allEvents);
+      setIsLoading(false);
+    } else {
+      fetchData();
+    }
+  }, [view, allEvents]);
 
-  if (hasError) return <ConnectionError error={`Unable to access events right now. Please try again later`} />;
-  if (isLoading) return <Loading />;
-  if (sortedEvents.length === 0) return <p>No events available at the moment.</p>;
+  // Reset the view in sessionStorage when the component unmounts to ensure that the user's view state is cleared when they navigate to another page.
+  // also supports scenarios where users may open different views in different tabs, as the view is specific to the current tab.
+  useEffect(() => {
+    return () => {
+      sessionStorage.removeItem("eventView");
+    };
+  }, []);
+
+  if (hasError) {
+    return <ConnectionError error={`Unable to access ${view} events right now. Please try again later`} />;
+  }
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="events" id="events">
       <section className="events__header">
         <h2 className="events__header-title">Events</h2>
-        <div className="events__header-segments">
-          <button
-            type="button"
-            className={`events__header-segments-button ${view === "upcoming" ? "selected" : ""}`}
-            onClick={() => setView("upcoming")}
-          >
-            <div>Upcoming</div>
-          </button>
-          <button
-            type="button"
-            className={`events__header-segments-button ${view === "past" ? "selected" : ""}`}
-            onClick={() => setView("past")}
-          >
-            <div>Past</div>
-          </button>
-        </div>
+        <AddButton target="Event" link_to="/events/new" />
       </section>
 
-      {sortedEvents.map((event) => (
-        <Event
-          key={event.id}
-          id={event.id}
-          image={event.image}
-          title={event.title}
-          date={event.date}
-          time={event.time}
-          location={event.location}
-          host={event.host}
-          topic={event.topic}
-          additional_info={event.additional_info}
-          fee={event.fee}
-          isUpcoming={view === "upcoming"}
-          register={event.register}
-        />
-      ))}
+      <section className="events__tabs">
+        <button className={`events__tabs-button ${view === "all" ? "selected" : ""}`} onClick={() => setView("all")}>
+          <div>All</div>
+        </button>
+        <button
+          className={`events__tabs-button ${view === "upcoming" ? "selected" : ""}`}
+          onClick={() => setView("upcoming")}
+        >
+          <div>Upcoming</div>
+        </button>
+        <button className={`events__tabs-button ${view === "past" ? "selected" : ""}`} onClick={() => setView("past")}>
+          <div>Past</div>
+        </button>
+      </section>
+
+      {events.length === 0 ? (
+        <p className="events__message">No {view} events available at the moment.</p>
+      ) : (
+        events.map((event) => (
+          <Event
+            key={event.id}
+            id={event.id}
+            image={event.image}
+            title={event.title}
+            date={event.date}
+            time={event.time}
+            location={event.location}
+            host={event.host}
+            topic={event.topic}
+            additional_info={event.additional_info}
+            fee={event.fee}
+            isUpcoming={view === "upcoming"}
+            register={event.register}
+          />
+        ))
+      )}
     </div>
   );
 };

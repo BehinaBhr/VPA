@@ -1,0 +1,53 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.cancel-and-submit {
+  width:100%;
+  display: flex;
+  justify-content: space-around;
+  @include tablet {
+    justify-content: flex-end;
+    gap: $mid-space-between;
+  }
+  &__cancel {
+    @include labels-links-button;
+    background-color: transparent;
+    padding: $smallest-space-between 0;
+    width: 85px;
+    border-radius: $oval-border-radius;
+    border: 1px solid $fade-black;
+    &:hover {
+      cursor: pointer;
+      border: 1.5px solid $black;
+    
+    }
+  }
+  &__save {
+    @include labels-links-button;
+    background-color: $gold;
+    padding: $smallest-space-between 0;
+    width: 85px;
+    border-radius: $oval-border-radius;
+    border: 1px solid $fade-black;
+    &:hover {
+      cursor: pointer;
+      background-color: $light-green;
+      border: 1px solid $dark-green;
+    }
+  }
+  &__delete {
+    @include labels-links-button;
+    background-color: $gold;
+    padding: $smallest-space-between 0;
+    width: 85px;
+    border-radius: $oval-border-radius;
+    border: 1px solid $fade-black;
+    &:hover {
+      cursor: pointer;
+      background-color: $red;
+      border: 1px solid $coffee;
+    }
+  }
+}

@@ -6,9 +6,9 @@
 .about {
   display: flex;
   flex-direction: column;
-  gap: $mid-space-between;
+  gap: $tablet-padding;
   @include tablet {
-    gap: $tablet-padding;
+    gap: $large-space-between;
   }
 
   &__section {
@@ -20,9 +20,15 @@
       align-items: flex-start;
       gap: $mid-space-between;
     }
+    &-header {
+      @include header;
+    }
+
     &-title {
       @include subheader;
+      color: $beige;
     }
+
     &-content {
       @include body-large;
       text-align: center;

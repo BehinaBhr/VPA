@@ -1,0 +1,51 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.delete-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $mid-space-between;
+  background-color: $warmer-cream;
+  border-radius: $oval-border-radius;
+  padding: $tablet-padding;
+  margin: 30% $tablet-padding;
+  @include tablet {
+    padding: $large-space-between;
+    width: 40rem;
+    margin: 12rem auto;
+  }
+
+  &__background {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: $shade-black !important;
+  }
+
+  &__header {
+    @include subheader;
+  }
+
+  &__body {
+    @include body-large;
+  }
+
+  &__error {
+    @include body-medium;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $red;
+    border-radius: $oval-border-radius;
+    background-color: $light-red;
+    padding: $small-space-between $mobile-padding;
+  }
+}

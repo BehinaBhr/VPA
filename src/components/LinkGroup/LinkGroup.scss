@@ -1,0 +1,60 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.link-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: $light-dirty;
+  padding: $mobile-padding;
+  gap: $mid-space-between;
+  @include tablet {
+    flex-direction: row;
+    width: 100%;
+    padding: $mid-space-between;
+    gap: $tablet-padding;
+  }
+
+  &__header {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: $mobile-padding;
+    @include tablet {
+      width: 30%;
+      gap: $mid-space-between;
+    }
+    &-name {
+      @include body-large;
+      font-weight: bold;
+      color: $beige;
+      text-align: center;
+    }
+    .edit-and-delete {
+      justify-content: center;
+    }
+  }
+
+  &__items {
+    @include body-medium;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: $mobile-padding;
+    padding-left: $small-space-between;
+    width: 100%;
+  }
+
+  &__item {
+    text-decoration: underline;
+    color: $fade-black;
+    &:hover {
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+}

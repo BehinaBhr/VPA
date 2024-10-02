@@ -30,7 +30,9 @@ const Home = () => {
 
       <section className="home__invite">
         <div className="home__invite-wrapper">
-          <h2 className="home__invite-title">Get in touch</h2>
+          <Link to="/contact">
+            <h2 className="home__invite-title--link">Get in touch</h2>
+          </Link>
           <ContactLink />
         </div>
         <div className="home__invite-wrapper">

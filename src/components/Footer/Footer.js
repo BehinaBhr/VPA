@@ -12,32 +12,9 @@ const Footer = () => {
           <section className="footer__header">
             <div className="footer__header-logo">
               <Link to="/">
-                <img className="footer__logo-image" src={Logo} alt="VPA Logo" loading="lazy" />
+                <img className="footer__header-logo-image" src={Logo} alt="VPA Logo" loading="lazy" />
               </Link>
             </div>
-            {/* <ul className="footer__header-nav">
-              <Link to="/">
-                <li className="footer__header-nav-item">Home</li>
-              </Link>
-              <Link to="/events">
-                <li className="footer__header-nav-item">Events</li>
-              </Link>
-              <Link to="/gallery">
-                <li className="footer__header-nav-item">Gallery</li>
-              </Link>
-              <Link to="/join">
-                <li className="footer__header-nav-item">Join</li>
-              </Link>
-              <Link to="/links">
-                <li className="footer__header-nav-item">Links</li>
-              </Link>
-              <Link to="/about">
-                <li className="footer__header-nav-item">About</li>
-              </Link>
-              <Link to="/contact">
-                <li className="footer__header-nav-item">Contact</li>
-              </Link>
-            </ul> */}
             <NavList />
           </section>
 

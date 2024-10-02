@@ -5,7 +5,7 @@
 @use "../../styles/partials/colors" as *;
 
 .footer {
-  background-color: $light-beige;
+  background-color: $warmest-cream;
   margin-top: auto;
 
   &__wrapper {
@@ -14,7 +14,7 @@
     align-items: center;
     width: 100%;
     padding: $mobile-padding;
-    gap: $mobile-padding;
+    gap: $mid-space-between;
     @include tablet {
       padding: $tablet-padding;
       gap: $tablet-padding;
@@ -57,7 +57,7 @@
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
       &:hover {
         transform: scale(1.02);
-        box-shadow: 0 0 15px $dark-wood;
+        box-shadow: 0 0 4px $beige;
       }
       &-image {
         width: 7rem;
@@ -73,6 +73,10 @@
       @include body-medium;
       &--active {
         text-decoration: underline;
+      }
+      &:hover {
+        font-weight: bold;
+        cursor: pointer;
       }
     }
   }
@@ -92,7 +96,7 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-
+      gap: $tiny-space-between;
       &-title {
         width: 200px;
         &:hover {
@@ -112,7 +116,8 @@
       }
       &-content {
         @include body-medium;
-        color: $dark-wood;
+        color: $fade-black;
+        font-weight: bold;
       }
     }
     .contact-links {
@@ -135,7 +140,7 @@
       &:hover {
         cursor: pointer;
         text-decoration: underline;
-        color: $beige;
+        color: $blue;
       }
     }
   }
