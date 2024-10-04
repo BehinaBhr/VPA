@@ -39,7 +39,7 @@ const Footer = () => {
           <br />
           Designed & Developed by{" "}
           <a
-            href="https://www.linkedin.com/in/behinabhr/"
+            href="https://behinabhr.github.io/"
             target="_blank"
             rel="noopener noreferrer"
             className="footer__rights-link"
