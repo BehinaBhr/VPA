@@ -44,7 +44,7 @@ function ContactLinks() {
           rel="noreferrer noopener"
           className="contact-links__item"
         >
-          <img src={contact.logo} alt={`${contact.name} Logo`} />
+          <img src={contact.logo} alt={`${contact.name}-logo`} />
         </a>
       ))}
     </div>

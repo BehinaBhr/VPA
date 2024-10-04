@@ -14,17 +14,17 @@ const Home = () => {
       <section className="home__intro">
         <h1 className="home__intro-title">Vancouver Persian Architects</h1>
         <div className="home__intro-banner">
-          <img src={persian} alt="persian art" loading="lazy" />
+          <img src={persian} alt="Azadi tower symbolizing persian architecture" />
         </div>
       </section>
 
       <section className="home__slogan">
         <div className="home__slogan-wrapper">
           <p className="home__slogan-text">Thriving Persian Architecture Community & Related Professions</p>
-          <img src={architects} alt="architecture team" loading="lazy" />
+          <img src={architects} alt="VPA logo with building shapes symbolizing architecture." loading="lazy" />
         </div>
         <Link to="/about">
-          <button>More About VPA</button>
+          <button>About VPA</button>
         </Link>
       </section>
 

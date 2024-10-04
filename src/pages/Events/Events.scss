@@ -30,9 +30,9 @@
   &__tabs {
     @include body-large;
     display: flex;
-    border: 5px solid $warmest-cream;
+    border: 5px solid $warm-cream;
     border-radius: 10px;
-    background-color: $warmest-cream;
+    background-color: $warm-cream;
     gap: $smallest-space-between;
     align-self: center;
 
@@ -41,7 +41,7 @@
       justify-content: center;
       align-items: center;
       background-color: transparent;
-      color: $fade-dust;
+      color: $dirty;
       border: 0px solid transparent;
       border-radius: 10px;
       transition: box-shadow 0.3s ease;
@@ -51,13 +51,13 @@
       }
       &:hover {
         cursor: pointer;
-        color: $dark-dust;
+        color: $dark-dirty;
       }
 
       &.selected {
         padding: $tiny-space-between;
         color: $fade-black;
-        background-color: $soft-white;
+        background-color: $white;
         box-shadow: 0 2px 5px $gray;
       }
     }

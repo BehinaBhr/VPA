@@ -45,10 +45,10 @@ const Event = ({ id, image, title, date, time, location, topic, host, additional
         <h3 className="event__title">{title}</h3>
         <div className="event__section">
           <div className="event__info">
-            <img className="event__info-icon" src={datetimeIcon} alt="datetime icon" loading="lazy" />
+            <img className="event__info-icon" src={datetimeIcon} alt="datetime icon" />
             <h4 className="event__info-title">When:</h4>
             <p className="event__info-text">
-              {date} - {time}
+              {date} / {time}
             </p>
           </div>
         </div>
@@ -56,14 +56,14 @@ const Event = ({ id, image, title, date, time, location, topic, host, additional
         {expanded && (
           <div className="event__section">
             <div className="event__info">
-              <img className="event__info-icon" src={locationIcon} alt="location icon" loading="lazy" />
+              <img className="event__info-icon" src={locationIcon} alt="location icon" />
               <h4 className="event__info-title">Where:</h4>
               <p className="event__info-text">{location}</p>
             </div>
 
             {topic && (
               <div className="event__info">
-                <img className="event__info-icon" src={topicIcon} alt="topic icon" loading="lazy" />
+                <img className="event__info-icon" src={topicIcon} alt="topic icon" />
                 <h4 className="event__info-title">Topic:</h4>
                 <p className="event__info-text">{topic}</p>
               </div>
@@ -71,7 +71,7 @@ const Event = ({ id, image, title, date, time, location, topic, host, additional
 
             {host && (
               <div className="event__info">
-                <img className="event__info-icon" src={hostIcon} alt="host icon" loading="lazy" />
+                <img className="event__info-icon" src={hostIcon} alt="host icon" />
                 <h4 className="event__info-title">Host:</h4>
                 <p className="event__info-text">{host}</p>
               </div>
@@ -79,7 +79,7 @@ const Event = ({ id, image, title, date, time, location, topic, host, additional
 
             {additional_info && (
               <div className="event__info">
-                <img className="event__info-icon" src={infoIcon} alt="info icon" loading="lazy" />
+                <img className="event__info-icon" src={infoIcon} alt="info icon" />
                 <h4 className="event__info-title">Info:</h4>
                 <p className="event__info-text">{additional_info}</p>
               </div>
@@ -87,7 +87,7 @@ const Event = ({ id, image, title, date, time, location, topic, host, additional
 
             {fee && (
               <div className="event__info">
-                <img className="event__info-icon" src={feeIcon} alt="fee icon" loading="lazy" />
+                <img className="event__info-icon" src={feeIcon} alt="fee icon" />
                 <h4 className="event__info-title">Fee:</h4>
                 <p className="event__info-text">{fee}</p>
               </div>

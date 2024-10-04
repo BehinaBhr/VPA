@@ -17,10 +17,10 @@ function Header() {
       <section>
         <div className="header__logo">
           <Link to="/">
-            <img className="header__logo-image" src={Logo} alt="VPA Logo" loading="lazy" />
+            <img className="header__logo-image" src={Logo} alt="VPA logo" />
           </Link>
         </div>
-        <img className="header__menu-icon" src={menuIcon} alt="Menu" onClick={toggleNav} loading="lazy" />
+        <img className="header__menu-icon" src={menuIcon} alt="menu icon" onClick={toggleNav} />
       </section>
       <nav className={`header__nav ${isNavVisible ? "visible" : ""}`}>
         <NavList />

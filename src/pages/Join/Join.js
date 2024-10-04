@@ -11,7 +11,7 @@ const Join = () => {
       <section className="join__intro">
         <h2 className="join__intro-title">Get Involved</h2>
         <div className="join__intro-banner">
-          <img src={JoinPic} alt=" contributing hand to make a puzzel " loading="lazy" />
+          <img src={JoinPic} alt="passion lead us here" />
         </div>
       </section>
       <section className="join__section">
