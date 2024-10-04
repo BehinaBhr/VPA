@@ -4,6 +4,7 @@ import linkedinLogo from "../../assets/images/linkedin.svg";
 import telegramLogo from "../../assets/images/telegram.svg";
 import facebookLogo from "../../assets/images/facebook.svg";
 import emailLogo from "../../assets/images/email.svg";
+import youtubeLogo from "../../assets/images/youtube.svg";
 
 function ContactLinks() {
   const contactLinks = [
@@ -31,6 +32,11 @@ function ContactLinks() {
       name: "Email",
       link: "mailto:persianinarchitecture@gmail.com",
       logo: emailLogo,
+    },
+    {
+      name: "Youtube",
+      link: "https://youtube.com/@vancouverpersianinarchitects?si=1MOQEOve3inAyb1V",
+      logo: youtubeLogo,
     },
   ];
 

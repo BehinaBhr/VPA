@@ -50,15 +50,14 @@
         width: 100%;
       }
       @include desktop {
-        max-height: 340px;
+        max-height: 380px;
       }
     }
 
     .contact-links {
-      display: flex;
       gap: $mobile-padding;
-      @include desktop {
-        gap: $tablet-padding;
+      @include tablet {
+        gap: $smallest-space-between;
       }
     }
   }
