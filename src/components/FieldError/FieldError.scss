@@ -1,0 +1,19 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.field-error {
+  @include body-small;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: $smallest-space-between;
+
+  &__icon {
+    width: 22px;
+  }
+
+  &__text {
+    color: $red;
+  }
+}

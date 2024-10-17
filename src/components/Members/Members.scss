@@ -1,0 +1,60 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.members {
+  display: flex;
+  flex-direction: column;
+  background-color: $light-blue;
+  padding: $smallest-space-between $mobile-padding $small-space-between $mid-space-between;
+  gap: $mid-space-between;
+  @include tablet {
+    padding: $small-space-between $mid-space-between $mobile-padding $tablet-padding;
+    gap: $tablet-padding;
+  }
+
+  &__item {
+    list-style: square;
+    &::marker {
+      color: $dark-green;
+    }
+
+    &-title {
+      @include body-large;
+      font-weight: bold;
+      color: $dark-green;
+    }
+
+    &-content {
+      @include body-large;
+      padding-top: $small-space-between;
+      &--bold {
+        font-weight: bold;
+      }
+      &--link {
+        cursor: pointer;
+        color: $beige;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  button {
+    @include labels-links-button;
+    padding: $smallest-space-between $tablet-padding;
+    background-color: $blue;
+    margin: $smallest-space-between 0;
+    border: none;
+    border-radius: $oval-border-radius;
+    cursor: pointer;
+    box-shadow: 5px 5px $gray;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    // button effect: being pushed down on hover
+    &:hover {
+      box-shadow: 3px 3px $gray;
+      transform: translateY(4px);
+    }
+  }
+}

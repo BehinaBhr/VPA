@@ -1,0 +1,7 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.form-label {
+  @include body-medium;
+  font-weight: bold;
+}

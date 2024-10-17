@@ -1,0 +1,74 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $mid-space-between;
+  @include tablet {
+    align-items: flex-start;
+    gap: $tablet-padding;
+  }
+  @include desktop {
+    gap: $large-space-between;
+  }
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+
+    &-title {
+      @include header;
+    }
+  }
+
+  &__tabs {
+    @include body-large;
+    display: flex;
+    border: 5px solid $warm-cream;
+    border-radius: 10px;
+    background-color: $warm-cream;
+    gap: $smallest-space-between;
+    align-self: center;
+
+    &-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      color: $dirty;
+      border: 0px solid transparent;
+      border-radius: 10px;
+      transition: box-shadow 0.3s ease;
+      width: 75px;
+      @include tablet {
+        width: 80px;
+      }
+      &:hover {
+        cursor: pointer;
+        color: $dark-dirty;
+      }
+
+      &.selected {
+        padding: $tiny-space-between;
+        color: $fade-black;
+        background-color: $white;
+        box-shadow: 0 2px 5px $gray;
+      }
+    }
+  }
+
+  &__message {
+    display: flex;
+    align-self: center;
+    text-align: center;
+    @include body-large;
+    color: $fade-black;
+    margin-top: $mid-space-between;
+  }
+}

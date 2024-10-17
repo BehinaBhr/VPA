@@ -1,0 +1,25 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.back-button-and-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: $small-space-between;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    @include tablet {
+      width: 32px;
+    }
+  }
+
+  &__title {
+    @include subheader;
+  }
+}

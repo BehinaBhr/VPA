@@ -1,0 +1,32 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.nav-list {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  list-style: none;
+  gap: $small-space-between;
+  @include tablet {
+    gap: $tablet-padding;
+  }
+
+  &__item {
+    display: flex;
+    @include body-large;
+    text-decoration: none;
+    justify-content: space-evenly;
+    color: $black;
+    &:hover {
+      font-weight: bold;
+      cursor: pointer;
+    }
+    &--active {
+      color: $beige;
+    }
+  }
+}

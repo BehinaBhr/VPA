@@ -1,0 +1,15 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.failed-submit-error {
+  @include body-medium;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: $red;
+  border-radius: $oval-border-radius;
+  background-color: $light-red;
+  padding: $small-space-between $mobile-padding;
+}

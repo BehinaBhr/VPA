@@ -1,0 +1,15 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.add-button {
+  @include labels-links-button;
+  background-color: $light-green;
+  border-radius: 10px;
+  padding: $tiny-space-between $smallest-space-between;
+  border: 1px solid $dark-dirty;
+  &:hover {
+    cursor: pointer;
+    background-color: $green;
+  }
+}

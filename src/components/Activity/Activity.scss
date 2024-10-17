@@ -1,0 +1,45 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.activity {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  cursor: pointer;
+  background-color: $fade-dirty;
+  border: 1.5px solid $light-silver;
+  border-radius: 8px;
+  gap: $smallest-space-between;
+  padding-bottom: $smallest-space-between;
+  &:hover {
+    box-shadow: 4px 4px $silver;
+  }
+
+  &__banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    width: $mobile-banner-width;
+    @include tablet {
+      width: $tablet-banner-width;
+    }
+    img {
+      width: auto;
+      height: auto;
+      max-width: $mobile-banner-width;
+      max-height: $mobile-banner-width;
+      @include tablet {
+        max-width: $tablet-banner-width;
+        max-height: $tablet-banner-width;
+      }
+    }
+  }
+
+  &__title {
+    @include subheader;
+    color: $black;
+  }
+}
