@@ -12,7 +12,7 @@ const Admin = () => {
   return (
     <div className="admin">
       <section className="admin__header">
-        <img className="admin__header-icon" src={adminIcon} alt="admin panel icon" loading="lazy" />
+        <img className="admin__header-icon" src={adminIcon} alt="admin panel icon" />
         <h2 className="admin__header-title">Admin Panel</h2>
         <p className="admin__header-info">
           {token ? (

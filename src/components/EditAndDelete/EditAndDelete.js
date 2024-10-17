@@ -14,13 +14,13 @@ const EditAndDelete = ({ edit_to, onDelete }) => {
     <section className="edit-and-delete">
       <Link to={edit_to}>
         <button className="edit-and-delete__edit">
-          <img className="edit-and-delete__edit-icon" src={editIcon} alt="Edit" />
+          <img className="edit-and-delete__edit-icon" src={editIcon} alt="edit-button" />
           <span className="edit-and-delete__edit-text">Edit</span>
         </button>
       </Link>
 
       <button className="edit-and-delete__delete" onClick={onDelete}>
-        <img className="edit-and-delete__delete-icon" src={deleteIcon} alt="Delete" />
+        <img className="edit-and-delete__delete-icon" src={deleteIcon} alt="delete-button" />
         <span className="edit-and-delete__delete-text">Delete</span>
       </button>
     </section>

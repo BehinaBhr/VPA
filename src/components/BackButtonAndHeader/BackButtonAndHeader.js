@@ -7,7 +7,7 @@ const BackButtonAndHeader = ({ header, back_to }) => {
   return (
     <section className="back-button-and-header">
       <NavLink to={back_to} onClick={!back_to ? () => navigate(-1) : () => {}} >
-        <img className="back-button-and-header__icon" src={arrowBack} alt="arrow-back" />
+        <img className="back-button-and-header__icon" src={arrowBack} alt="arrow-back"/>
       </NavLink>
       <div className="back-button-and-header__title">{header}</div>
     </section>

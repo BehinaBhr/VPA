@@ -7,7 +7,7 @@ const Activity = ({ id, image, title, link_to }) => {
       <div className="activity">
         <h3 className="activity__title">{title}</h3>
         <div className="activity__banner">
-          <img src={image} alt={`activity${id} banner`} loading="lazy" />
+          <img src={image} alt={`activity${id} banner`} />
         </div>
       </div>
     </Link>

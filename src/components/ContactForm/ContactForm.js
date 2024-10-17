@@ -56,10 +56,10 @@ const ContactForm = () => {
       setIsSubmitting(true);
       try {
         const response = await emailjs.sendForm(
-          "service_ddftbnt",
-          "template_nt5x99r",
+          "service_9m3mgeb",
+          "template_bykvtcj",
           form.current,
-          "7r8MHzHo8KITRpU-c"
+          "bV0my9l9NgQ2LDrgh"
         );
 
         if (response.status === 200) {

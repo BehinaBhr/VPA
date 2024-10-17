@@ -13,7 +13,11 @@ const Contact = () => {
 
       <div className="contact__body">
         <section className="contact__banner">
-          <img className="contact__banner-img" src={ContactPic} alt="handshake through a mailbox " loading="lazy" />
+          <img
+            className="contact__banner-img"
+            src={ContactPic}
+            alt="laptop and pen with VPA logo symbolizing Contact Us"
+          />
           <ContactLink />
         </section>
 

@@ -118,13 +118,16 @@
   &__register {
     @include labels-links-button;
     text-align: center;
-    cursor: pointer;
     margin-bottom: $small-space-between;
     padding: $tiny-space-between $small-space-between;
     background-color: $gold;
     border-radius: $oval-border-radius;
     color: $fade-black;
     border: 1px solid $gray;
+    &:hover {
+      cursor: pointer;
+      border: 1.5px solid $black;
+    }
   }
 
   &__see-more {

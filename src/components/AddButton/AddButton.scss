@@ -4,12 +4,12 @@
 
 .add-button {
   @include labels-links-button;
-  background-color: $light-dust;
+  background-color: $light-green;
   border-radius: 10px;
   padding: $tiny-space-between $smallest-space-between;
-  border: 1px solid $dark-dust;
+  border: 1px solid $dark-dirty;
   &:hover {
     cursor: pointer;
-    background-color: $dust;
+    background-color: $green;
   }
 }

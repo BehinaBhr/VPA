@@ -1,50 +1,33 @@
-//$cream: #F5F3F0;
-// $cream:#f7f5ed;
-// $cream:#f8f4ef;
-// $cream: #f3ede7; // first background
-$cream:#f9f5f3;
-$warmer-cream: #ede6dc;
-// $warmest-cream: #e5dacb; // first footer
-$warmest-cream: #f3ede7; // new footer = first background
+$cream:#f9f5f3; //background
+$warm-cream: #f3ede7; //footer
 
-// $light-dirty: #ebe2db;
-// $dirty: #e0d7d0;
-$dirty:#f0ebe5;
-$light-dirty:#e7eaea;
+$fade-dirty:#f0ebe5; //second layer in home
+$dirty: #c3b9aa; //events segment text color tab
+$dark-dirty: #807e6f; //footer rights, events segment text color tab on hover, border add button
 
-$fade-dust: #c3b9aa;
-$light-dust: #dfe3d5;
-$dust: #d3d5c7;
-$dark-dust: #807e6f;
-
-$light-green: #bfd7ae;
-$green: #1d3a38;
+$light-green: #dfe3d5; //add button and success message background
+$green: #bfd7ae; //add button and submit button background on hover
 $dark-green: #1c261e;
 
 $sky: #e9faff;
 $light-blue:#e1e5e6;
-
-// $blue: #6f858c;
-// $dark-blue: #486069;
 $blue: #8bb1b0;
 $dark-blue:#6a8f8e;
-$darknavy: #010128;
+$navy: #010128;
 
-
-$light-gold: #d1a86b;
-$gold: #bd9662;
+// $gold: #bd9662;
+$gold:#d0b185;//submit,login,logout,register button background, join button hover animation, About VPA button background on hover at home page 
 $beige: #a18053;
 
 $light-red: #f4cecd;
 $red: #c40906;
-$coffee:#19181F;
+$dark-red:#4b180f;
 
 $shade-black: #0000005c;
 $fade-black: #333;
 $black: #000000;
 
 $white: #f7f4f4;
-$soft-white: #f5f3f0;
 
 $light-silver: #e9e9e9;
 $silver: #b5b6ba;

@@ -22,22 +22,25 @@
 
     &-title {
       @include header;
-      color: $coffee;
+      color: $dark-green;
     }
 
     &-banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       img {
         overflow: hidden;
         aspect-ratio: 0.8;
-        max-width: 11rem;
-        max-height: 11rem;
+        max-width: 12rem;
+        max-height: 12rem;
         @include tablet {
           max-width: 22rem;
           max-height: 22rem;
         }
         @include desktop {
-          max-width: 33rem;
-          max-height: 33rem;
+          max-width: 30rem;
+          max-height: 30rem;
         }
       }
     }
@@ -48,11 +51,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: $dirty;
+    background-color: $fade-dirty;
     padding: $smallest-space-between;
-    gap: $smallest-space-between;
+    gap: $small-space-between;
     @include tablet {
-      gap: $tiny-space-between;
+      padding: $mobile-padding;
     }
 
     &-wrapper {
@@ -60,7 +63,7 @@
       width: 100%;
       flex-direction: column;
       align-items: center;
-      gap: $tiny-space-between;
+      gap: $small-space-between;
       @include tablet {
         flex-direction: row;
         justify-content: space-between;
@@ -77,19 +80,19 @@
     }
 
     img {
-      width: 150px;
+      width: 200px;
       @include tablet {
-        width: 200px;
+        width: 250px;
       }
       @include desktop {
-        width: 250px;
+        width: 300px;
       }
     }
 
     button {
       @include labels-links-button;
       background-color: $blue;
-      color: $soft-white;
+      color: $fade-black;
       border: none;
       border-radius: $oval-border-radius;
       padding: $tiny-space-between $small-space-between;
@@ -97,7 +100,7 @@
         padding: $smallest-space-between $tablet-padding;
       }
       &:hover {
-        background-color: $dark-blue;
+        background-color: $gold;
         cursor: pointer;
       }
     }
@@ -152,7 +155,7 @@
       border: 1px solid $black;
       border-radius: 7px;
       background-size: 200% auto;
-      background-image: linear-gradient(to right, $blue 0%, $blue 50%, $light-gold 75%, $warmest-cream 100%);
+      background-image: linear-gradient(to right, $blue 0%, $blue 50%, $gold 75%, $warm-cream 100%);
       transition: background-position 0.4s ease-in-out, height 0.4s, width 0.4s;
       height: 36px;
       width: 100px;

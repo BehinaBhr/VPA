@@ -12,7 +12,7 @@ const Footer = () => {
           <section className="footer__header">
             <div className="footer__header-logo">
               <Link to="/">
-                <img className="footer__header-logo-image" src={Logo} alt="VPA Logo" loading="lazy" />
+                <img className="footer__header-logo-image" src={Logo} alt="VPA Logo" />
               </Link>
             </div>
             <NavList />
@@ -39,7 +39,7 @@ const Footer = () => {
           <br />
           Designed & Developed by{" "}
           <a
-            href="https://www.linkedin.com/in/behinabhr/"
+            href="https://behinabhr.github.io/"
             target="_blank"
             rel="noopener noreferrer"
             className="footer__rights-link"
