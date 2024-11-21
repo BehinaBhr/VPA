@@ -1,0 +1,47 @@
+@use "./styles/partials/typography" as *;
+@use "./styles/partials/colors.scss" as *;
+@use "./styles/partials/mixins" as *;
+@use "./styles/partials/breakpoints" as *;
+@use "./styles/partials/variables" as *;
+
+//default styling for website
+*,
+*::before,
+*::after,
+a {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.app {
+  background-color: $cream;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+main {
+  padding-bottom: $large-space-between;
+  padding-top: $tablet-padding;
+  padding-left: $mobile-padding;
+  padding-right: $mobile-padding;
+  @include tablet {
+    padding-bottom: $larger-space-between;
+    padding-left: $tablet-padding;
+    padding-right: $tablet-padding;
+  }
+  @include desktop {
+    padding-bottom: $largest-space-between;
+    padding-top: $large-space-between;
+    max-width: $breakpoint-desktop;
+    min-width: calc($breakpoint-desktop - 2 * $tablet-padding);
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,44 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.link {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: $small-space-between;
+  &__item {
+    text-decoration: underline;
+    color: $fade-black;
+    &:hover {
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+  .edit-and-delete {
+    justify-content: flex-end;
+    width: 80px;
+    @include tablet {
+      gap: $mobile-padding;
+      width: 87px;
+    }
+
+    &__edit,
+    &__delete {
+      padding: 0;
+      border-radius: 50%;
+      aspect-ratio: 1/1;
+      width: 35px;
+      height: 35px;
+
+      &-icon {
+        display: inline;
+      }
+
+      &-text {
+        display: none;
+      }
+    }
+  }
+}

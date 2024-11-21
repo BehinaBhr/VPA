@@ -1,0 +1,147 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.footer {
+  background-color: $warm-cream;
+  margin-top: auto;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: $mobile-padding;
+    gap: $mid-space-between;
+    @include tablet {
+      padding: $tablet-padding;
+      gap: $tablet-padding;
+    }
+    @include desktop {
+      max-width: $breakpoint-desktop;
+      margin: 0 auto;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: $mobile-padding;
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: $small-space-between;
+    @include tablet {
+      justify-content: center;
+      align-items: flex-start;
+      width: 55%;
+    }
+    @include desktop {
+      width: 60%;
+    }
+
+    &-logo {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 4px $beige;
+      }
+      &-image {
+        width: 7rem;
+      }
+    }
+  }
+  .nav-list {
+    gap: $smallest-space-between;
+    @include tablet {
+      justify-content: space-between;
+    }
+    &__item {
+      @include body-medium;
+      &--active {
+        text-decoration: underline;
+      }
+      &:hover {
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__connect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: $small-space-between;
+    @include tablet {
+      width: fit-content;
+    }
+
+    &-join {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: $tiny-space-between;
+      &-title {
+        width: 200px;
+        &:hover {
+          animation: blink 1.3s ease-in-out infinite;
+        }
+        @keyframes blink {
+          0%,
+          20%,
+          100% {
+            opacity: 1;
+          }
+          10%,
+          30% {
+            opacity: 0;
+          }
+        }
+      }
+      &-content {
+        @include body-medium;
+        color: $fade-black;
+        font-weight: bold;
+      }
+    }
+    .contact-links {
+      &__item {
+        img {
+          width: 28px;
+        }
+      }
+    }
+  }
+
+  &__rights {
+    text-align: center;
+    @include body-small;
+    color: $dark-dirty;
+    &-link {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        color: $blue;
+      }
+    }
+  }
+}

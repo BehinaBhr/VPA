@@ -1,0 +1,99 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $mid-space-between;
+  @include tablet {
+    align-items: flex-start;
+    gap: $tablet-padding;
+  }
+
+  &__title {
+    @include header;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $mobile-padding;
+    @include tablet {
+      align-items: stretch;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      gap: $tablet-padding;
+    }
+    @include desktop {
+      gap: $large-space-between;
+    }
+  }
+
+  &__banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: $mobile-padding;
+    @include tablet {
+      width: 40%;
+      gap: $mid-space-between;
+    }
+
+    &-img {
+      width: 250px;
+      @include tablet {
+        width: 100%;
+      }
+      @include desktop {
+        max-height: 380px;
+      }
+    }
+
+    .contact-links {
+      gap: $mobile-padding;
+      @include tablet {
+        gap: $smallest-space-between;
+      }
+    }
+  }
+
+  &__email {
+    @include body-large;
+    font-weight: bold;
+    color: $black;
+    
+    &:hover {
+      cursor: pointer;
+      color: $dark-blue;
+      text-decoration: underline;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    gap: $small-space-between;
+    @include tablet {
+      align-items: flex-start;
+      gap: $mid-space-between;
+    }
+
+    &-text {
+      @include body-large;
+      text-align: center;
+      &--bold {
+        font-weight: bold;
+      }
+      @include tablet {
+        text-align: left;
+      }
+    }
+  }
+}

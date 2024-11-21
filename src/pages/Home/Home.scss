@@ -1,0 +1,187 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $mid-space-between;
+  @include tablet {
+    align-items: flex-start;
+    gap: $large-space-between;
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    &-title {
+      @include header;
+      color: $dark-green;
+    }
+
+    &-banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        overflow: hidden;
+        aspect-ratio: 0.8;
+        max-width: 12rem;
+        max-height: 12rem;
+        @include tablet {
+          max-width: 22rem;
+          max-height: 22rem;
+        }
+        @include desktop {
+          max-width: 30rem;
+          max-height: 30rem;
+        }
+      }
+    }
+  }
+
+  &__slogan {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $fade-dirty;
+    padding: $smallest-space-between;
+    gap: $small-space-between;
+    @include tablet {
+      padding: $mobile-padding;
+    }
+
+    &-wrapper {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      gap: $small-space-between;
+      @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    &-text {
+      @include subheader;
+      color: $dark-green;
+      text-align: center;
+      @include tablet {
+        text-align: left;
+      }
+    }
+
+    img {
+      width: 200px;
+      @include tablet {
+        width: 250px;
+      }
+      @include desktop {
+        width: 300px;
+      }
+    }
+
+    button {
+      @include labels-links-button;
+      background-color: $blue;
+      color: $fade-black;
+      border: none;
+      border-radius: $oval-border-radius;
+      padding: $tiny-space-between $small-space-between;
+      @include tablet {
+        padding: $smallest-space-between $tablet-padding;
+      }
+      &:hover {
+        background-color: $gold;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__invite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: $mobile-padding;
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-around;
+      gap: 0;
+    }
+
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: $small-space-between;
+      @include tablet {
+        width: fit-content;
+      }
+    }
+
+    &-title {
+      @include subheader;
+
+      &--link {
+        @include subheader;
+        color: $black;
+        background-size: 200% auto;
+        background-image: linear-gradient(to right, $black 0%, $beige 50%, $gold 50%, $black 100%);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        transition: background-position 0.4s ease-in-out;
+        &:hover {
+          background-position: right center;
+          cursor: pointer;
+        }
+      }
+    }
+
+    button {
+      @include body-large;
+      font-weight: bold;
+      color: $black;
+      background-color: $blue;
+      border: 1px solid $black;
+      border-radius: 7px;
+      background-size: 200% auto;
+      background-image: linear-gradient(to right, $blue 0%, $blue 50%, $gold 75%, $warm-cream 100%);
+      transition: background-position 0.4s ease-in-out, height 0.4s, width 0.4s;
+      height: 36px;
+      width: 100px;
+      @include tablet {
+        height: 40px;
+        width: 120px;
+      }
+      @include desktop {
+        height: 52px;
+        width: 100px;
+      }
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.02);
+        border: 2px solid $black;
+        background-position: right center;
+      }
+    }
+  }
+
+  &__activity {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: $mobile-padding;
+  }
+}

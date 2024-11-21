@@ -1,0 +1,33 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.contact-links {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  gap: $small-space-between;
+
+  @include tablet {
+    gap: $mobile-padding;
+  }
+  &__item {
+    display: flex;
+    img {
+      width: 36px;
+      transition: transform 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    @include tablet {
+      img {
+        width:40px;
+      }
+    }
+    @include desktop {
+      img {
+        width: 52px;
+      }
+    }
+  }
+}

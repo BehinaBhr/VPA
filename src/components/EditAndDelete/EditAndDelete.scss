@@ -1,0 +1,64 @@
+@use "../../styles/partials/typography-mixins" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+.edit-and-delete {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: $small-space-between;
+  @include tablet {
+    justify-content: flex-end;
+  }
+
+  &__edit {
+    display: flex;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    padding: $tiny-space-between 0;
+    border-radius: 10px;
+    border: 1px solid $fade-black;
+    background-color: $light-silver;
+    &:hover {
+      cursor: pointer;
+      background-color: $sky;
+      border: 1.5px solid $dark-blue;
+    }
+
+    &-icon {
+      width: 20px;
+      display: none;
+    }
+
+    &-text {
+      @include labels-links-button;
+    }
+  }
+
+  &__delete {
+    display: flex;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    padding: $tiny-space-between 0;
+    border-radius: 10px;
+    border: 1px solid $fade-black;
+    background-color: $silver;
+    &:hover {
+      cursor: pointer;
+      border: 1.5px solid $red;
+      background-color: $light-red;
+    }
+
+    &-icon {
+      width: 20px;
+      display: none;
+    }
+
+    &-text {
+      @include labels-links-button;
+    }
+  }
+}
