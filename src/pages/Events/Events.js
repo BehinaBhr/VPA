@@ -101,6 +101,7 @@ const Events = () => {
             host={event.host}
             topic={event.topic}
             additional_info={event.additional_info}
+            isUpcoming={event.isUpcoming == 1}
             fee={event.fee}
             register={event.register}
           />

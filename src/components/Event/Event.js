@@ -10,7 +10,7 @@ import { deleteEvent } from "../../utils/api";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import EditAndDelete from "../EditAndDelete/EditAndDelete";
 
-const Event = ({ id, image, title, date, time, location, topic, host, additional_info, fee, register }) => {
+const Event = ({ id, image, title, date, time, location, topic, host, additional_info, fee, isUpcoming, register }) => {
   const [expanded, setExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -35,9 +35,6 @@ const Event = ({ id, image, title, date, time, location, topic, host, additional
       setIsModalOpen(true);
     }
   };
-
-  // Check if the event is upcoming by comparing dates
-  const isUpcoming = new Date(date).setHours(0, 0, 0, 0) >= new Date().setHours(0, 0, 0, 0);
 
   return (
     <div className={`event ${expanded ? "event--expanded" : ""}`}>
