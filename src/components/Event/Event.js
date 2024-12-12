@@ -37,7 +37,7 @@ const Event = ({ id, image, title, date, time, location, topic, host, additional
   };
 
   // Check if the event is upcoming by comparing dates
-  const isUpcoming = new Date(date) > new Date();
+  const isUpcoming = new Date(date) >= new Date();
 
   return (
     <div className={`event ${expanded ? "event--expanded" : ""}`}>
