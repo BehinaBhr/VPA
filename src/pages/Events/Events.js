@@ -102,7 +102,6 @@ const Events = () => {
             topic={event.topic}
             additional_info={event.additional_info}
             fee={event.fee}
-            isUpcoming={view === "upcoming"}
             register={event.register}
           />
         ))
