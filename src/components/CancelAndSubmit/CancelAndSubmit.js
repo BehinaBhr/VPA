@@ -4,12 +4,12 @@ import "./CancelAndSubmit.scss";
 const CancelAndSubmit = ({ onCancel, onDelete = null, submitType = "save" }) => {
   return (
     <section className="cancel-and-submit">
-      <button className="cancel-and-submit__cancel" onClick={onCancel}>
+      <button className="cancel-and-submit__cancel" onClick={onCancel} type="button">
         Cancel
       </button>
 
       {submitType === "delete" ? (
-        <button className="cancel-and-submit__delete" onClick={onDelete}>
+        <button className="cancel-and-submit__delete" onClick={onDelete} type="button">
           Delete
         </button>
       ) : (
